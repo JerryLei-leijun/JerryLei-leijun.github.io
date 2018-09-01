@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Scipy公共包导入 12345import numpy as npimport pandas as pdimport scipy as spimport matplotlib.pyplot as plt%matplotlib inline 傅里叶变换与运算消噪(登月图片消噪)12345678910111213141516171819# 导包import scipy.fftpack as fft#">
+<meta name="keywords" content="scipy">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Scipy">
+<meta property="og:url" content="http://www.rethteclo.top/2018/07/25/01_Scipy/index.html">
+<meta property="og:site_name" content="Jerry&#39;s Blog">
+<meta property="og:description" content="Scipy公共包导入 12345import numpy as npimport pandas as pdimport scipy as spimport matplotlib.pyplot as plt%matplotlib inline 傅里叶变换与运算消噪(登月图片消噪)12345678910111213141516171819# 导包import scipy.fftpack as fft#">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-09-01T08:36:51.835Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Scipy">
+<meta name="twitter:description" content="Scipy公共包导入 12345import numpy as npimport pandas as pdimport scipy as spimport matplotlib.pyplot as plt%matplotlib inline 傅里叶变换与运算消噪(登月图片消噪)12345678910111213141516171819# 导包import scipy.fftpack as fft#">
+
+
+
+
+
+
+  <link rel="canonical" href="http://www.rethteclo.top/2018/07/25/01_Scipy/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Scipy | Jerry's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	
+	<a href="https://github.com/JerryLei-leijun"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
+	<a href="https://github.com/JerryLei-leijun" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jerry's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">welcome to my blog</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />Über</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+     
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.rethteclo.top/2018/07/25/01_Scipy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jerry Lei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jerry's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Scipy
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-07-25 00:00:00" itemprop="dateCreated datePublished" datetime="2018-07-25T00:00:00+08:00">2018-07-25</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-09-01 16:36:51" itemprop="dateModified" datetime="2018-09-01T16:36:51+08:00">2018-09-01</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据分析/" itemprop="url" rel="index"><span itemprop="name">数据分析</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Scipy"><a href="#Scipy" class="headerlink" title="Scipy"></a>Scipy</h1><p><strong>公共包导入</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">import pandas as pd</span><br><span class="line">import scipy as sp</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">%matplotlib inline</span><br></pre></td></tr></table></figure>
+<h4 id="傅里叶变换与运算消噪-登月图片消噪"><a href="#傅里叶变换与运算消噪-登月图片消噪" class="headerlink" title="傅里叶变换与运算消噪(登月图片消噪)"></a><strong>傅里叶变换与运算消噪(登月图片消噪)</strong></h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导包</span></span><br><span class="line"><span class="keyword">import</span> scipy.fftpack <span class="keyword">as</span> fft</span><br><span class="line"><span class="comment"># 读取图片</span></span><br><span class="line">moon = plt.imgread(<span class="string">'moonlanding.png'</span>)</span><br><span class="line"><span class="comment"># 设置打开图片画布大小</span></span><br><span class="line">plt.figure(figsize=(<span class="number">12</span>,<span class="number">9</span>))</span><br><span class="line"><span class="comment"># 显示图片 cmap='gray' 表示显示灰度图</span></span><br><span class="line">plt.imshow(moon,cmap=<span class="string">'gray'</span>)</span><br><span class="line"><span class="comment"># 进行快速傅里叶变换</span></span><br><span class="line">moon_fft = fft.fft2(moon)</span><br><span class="line"><span class="comment"># 去掉噪点</span></span><br><span class="line">result = np.where(np.abs(moon_fft) &gt; <span class="number">8e2</span>,<span class="number">0</span>,moon_fft)</span><br><span class="line"><span class="comment"># 执行傅里叶运算</span></span><br><span class="line">moon_ifft = fft.ifft2(result)</span><br><span class="line"><span class="comment"># 去除运算后的虚线保存实现(去虚保实)</span></span><br><span class="line">fina = np.real(moon_ifft)</span><br><span class="line"><span class="comment"># 显示最后结果</span></span><br><span class="line">plt.figure(figsize=(<span class="number">12</span>,<span class="number">9</span>))</span><br><span class="line">plt.imshow(fina,cmap=<span class="string">'gray'</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="数值积分-求解圆周率"><a href="#数值积分-求解圆周率" class="headerlink" title="数值积分 求解圆周率"></a><strong>数值积分 求解圆周率</strong></h4><p>数学知识回顾: 圆的方程   (x-a)^2 + (y-b)^2 = r^2</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#先绘制圆</span></span><br><span class="line"><span class="comment"># x 区间在 (-1,1)之间划分1000个等份</span></span><br><span class="line">x = np.linspace(<span class="number">-1</span>,<span class="number">1</span>,<span class="number">1000</span>)</span><br><span class="line"><span class="comment"># 用匿名函数 创建y 依据标准圆方程</span></span><br><span class="line">f = <span class="keyword">lambda</span> x : (<span class="number">1</span>-x**<span class="number">2</span>)**<span class="number">0.5</span></span><br><span class="line"><span class="comment"># 调整画布大小,注意画圆画布要长宽相等,以免造成图像拉升</span></span><br><span class="line">plt.figure(figsize=(<span class="number">9</span>,<span class="number">9</span>))</span><br><span class="line"><span class="comment"># 绘制上半圆 y轴正方向取值</span></span><br><span class="line">plt.plot(x,f(x))</span><br><span class="line"><span class="comment"># 绘制下半圆 y轴负方向取值</span></span><br><span class="line">plt.plot(x,-f(x))</span><br><span class="line"><span class="comment"># 使用scipy.integrate进行积分,调用quad()方法,导包</span></span><br><span class="line"><span class="keyword">import</span> scipy.integrate <span class="keyword">as</span> integrate</span><br><span class="line"><span class="comment"># 第一个返回值就是函数投影面积, 第二个返回值就是误差</span></span><br><span class="line">p,err = integrate.quad(f,<span class="number">-1</span>,<span class="number">1</span>)</span><br><span class="line"><span class="comment"># 这里利用r=1,求解的投影面积就等于1/2倍的pi</span></span><br><span class="line">pi = <span class="number">2</span>*p</span><br><span class="line"><span class="comment">#3.1415926</span></span><br></pre></td></tr></table></figure>
+<h4 id="scipy文件的输入与输出"><a href="#scipy文件的输入与输出" class="headerlink" title="scipy文件的输入与输出"></a><strong>scipy文件的输入与输出</strong></h4><p>使用scipy中的io.savemat()保存文件,io.loadmat()读取,格式 .mat ,标准的二进制文件</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导包</span></span><br><span class="line"><span class="keyword">import</span> scipy.io <span class="keyword">as</span> io</span><br><span class="line"><span class="comment"># 随机创建数据</span></span><br><span class="line">data = np.random.random(size=<span class="number">10</span>)</span><br><span class="line"><span class="comment"># 保存数据 参数1为文件名称 以字典形式存储</span></span><br><span class="line">io.savemat(<span class="string">'m_data'</span>,mdict=&#123;<span class="string">'data1'</span>:data&#125;)</span><br><span class="line"><span class="comment"># 读取数据 取出的key 即为存储的数据</span></span><br><span class="line">io.loadmat(<span class="string">'m_data.mat'</span>)[<span class="string">'data1'</span>]</span><br></pre></td></tr></table></figure>
+<p>读写图片使用scipy中misc.imread()  和  imsave()</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导包</span></span><br><span class="line"><span class="keyword">import</span> scipy.misc <span class="keyword">as</span> misc</span><br><span class="line"><span class="comment"># 读书图片</span></span><br><span class="line">imge_data = misc.imread(<span class="string">'cat.jpg'</span>)</span><br><span class="line"><span class="comment"># 显示图片</span></span><br><span class="line">plt.imshow(imge_data)</span><br></pre></td></tr></table></figure>
+<h4 id="misc-的imrotate-resize-imfilter-操作"><a href="#misc-的imrotate-resize-imfilter-操作" class="headerlink" title="misc 的imrotate, resize ,imfilter 操作"></a><strong>misc 的imrotate, resize ,imfilter 操作</strong></h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># imrotate 旋转角度 显示需用 plt.imshow()</span></span><br><span class="line">misc.imrotate(imge_data,angle=<span class="number">45</span>)</span><br><span class="line"><span class="comment"># resize 重定大小 定制 0-1之间的float</span></span><br><span class="line">misc.imresize(imge_data,size=<span class="number">0.5</span>)</span><br><span class="line"><span class="comment"># resize 重定大小 定制 整数类型的元组</span></span><br><span class="line">misc.imresize(imge_data,size=(<span class="number">100</span>,<span class="number">300</span>))</span><br><span class="line"><span class="comment"># imfilter 滤镜 效果('blur', 'contour', 'detail', 'edge_enhance', 'edge_enhance_more','emboss', 'find_edges', 'smooth', 'smooth_more', 'sharpen')</span></span><br><span class="line">misc.imfilter(imge_data,ftype=<span class="string">'smooth'</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="使用scipy-ndimage处理图片"><a href="#使用scipy-ndimage处理图片" class="headerlink" title="使用scipy.ndimage处理图片"></a><strong>使用scipy.ndimage处理图片</strong></h4><p>使用scipy.misc.face(gray=True)获取图片，使用ndimage移动坐标、旋转图片、切割图片、缩放图片</p>
+<p>注意:参数 对应的是灰度图 还是 具有色彩通道参数</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导包</span></span><br><span class="line"><span class="keyword">import</span> scipy.ndimage <span class="keyword">as</span> ndimage</span><br><span class="line"><span class="comment"># 显示需用 plt.imshow()</span></span><br><span class="line"><span class="comment"># 先读取一张图片(这里使用自带face图片) 灰度图</span></span><br><span class="line">face = misc.face(gray=<span class="keyword">True</span>)</span><br><span class="line"><span class="comment"># 移动(灰度图) shift ,mode参数:'constant','nearest','reflect','mirror','wrap',不写默认constant</span></span><br><span class="line">shift1 = ndimage.shift(face,shift=<span class="number">100</span>) <span class="comment">#向下 ,向右各移动100</span></span><br><span class="line">shift2 = ndimage.shift(face,shift=[<span class="number">300</span>,<span class="number">200</span>]) <span class="comment">#向下移300,向右移200</span></span><br><span class="line">shift3 =  ndimage.shift(face,shift=[<span class="number">300</span>,<span class="number">200</span>],mode=<span class="string">'wrap'</span>)</span><br><span class="line"><span class="comment"># 移动(彩色图) shift ,mode参数:'constant','nearest','reflect','mirror','wrap',不写默认constant</span></span><br><span class="line">face = misc.face(gray=<span class="keyword">False</span>)</span><br><span class="line">shift4= ndimage.shift(face,(<span class="number">200</span>,<span class="number">300</span>,<span class="number">0</span>),mode=<span class="string">'wrap'</span>)</span><br><span class="line"><span class="comment"># 旋转图片 rorate</span></span><br><span class="line">rotate1 = ndimage.rotate(face,angle=<span class="number">30</span>) <span class="comment"># 逆时针旋转30°</span></span><br><span class="line"><span class="comment"># 缩放图片(灰度图) zoom </span></span><br><span class="line">face = misc.face(gray=<span class="keyword">True</span>)</span><br><span class="line">zoom1 = ndimage.zoom(face,zoom=[<span class="number">0.5</span>,<span class="number">0.8</span>])</span><br><span class="line"><span class="comment"># 切割图片(灰度图) 切片</span></span><br><span class="line">gray_face = misc.face(gray=<span class="keyword">True</span>)</span><br><span class="line">gray_face = gray_face[<span class="number">150</span>:<span class="number">400</span>,<span class="number">300</span>:<span class="number">400</span>]</span><br><span class="line">plt.imshow(gray_face)</span><br></pre></td></tr></table></figure>
+<h4 id="gaussian-高斯滤波-参数sigma-median-中值滤波-参数size-signal-维纳滤波-参数-mysize"><a href="#gaussian-高斯滤波-参数sigma-median-中值滤波-参数size-signal-维纳滤波-参数-mysize" class="headerlink" title="gaussian 高斯滤波 参数sigma,median 中值滤波 参数size, signal 维纳滤波 参数 mysize"></a><strong>gaussian 高斯滤波 参数sigma,median 中值滤波 参数size, signal 维纳滤波 参数 mysize</strong></h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导包</span></span><br><span class="line"><span class="keyword">import</span> scipy.ndimage <span class="keyword">as</span> ndimage</span><br><span class="line"><span class="comment"># data 为噪点图</span></span><br><span class="line"><span class="comment"># 高斯滤波</span></span><br><span class="line">gaussian_data = ndimage.gaussian_filter(data,sigma=<span class="number">1.5</span>)  <span class="comment">#sigma值控制滤波效果</span></span><br><span class="line">plt.imshow(gaussian_data,cmap=<span class="string">'gray'</span>)</span><br><span class="line"><span class="comment"># 中值滤波</span></span><br><span class="line">median_data = ndimage.median_filter(data,size=<span class="number">7</span>)  <span class="comment">#size值控制滤波效果</span></span><br><span class="line">plt.imshow(median_data,cmap=<span class="string">'gray'</span>)</span><br><span class="line"><span class="comment"># 维纳滤波 (需导特定包)</span></span><br><span class="line"><span class="keyword">from</span> scipy.signal <span class="keyword">import</span> wiener  <span class="comment">#导包</span></span><br><span class="line">wiener_data = wiener(data,mysize=<span class="number">5</span>)  <span class="comment">#mysize值控制滤波效果</span></span><br><span class="line">plt.imshow(wiener_data,cmap=<span class="string">'gray'</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="Pandas"><a href="#Pandas" class="headerlink" title="Pandas"></a>Pandas</h1><p><strong>Pandas 中的Series和DataFrame都有一个生成各类图表的plot方法,默认情况下,生成订单都为线形图.</strong></p>
+<h4 id="线形图"><a href="#线形图" class="headerlink" title="线形图"></a><strong>线形图</strong></h4><p><strong>导公共包</strong></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> pandas <span class="keyword">import</span> Series,DataFrame</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">%matplotlib inline</span><br></pre></td></tr></table></figure>
+<p><strong>Series线形图</strong></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">例<span class="number">1</span>:</span><br><span class="line"><span class="comment"># 生成一个Series</span></span><br><span class="line">s = Series(index = np.arange(<span class="number">2010</span>,<span class="number">2018</span>,<span class="number">1</span>),data = [<span class="number">100</span>,<span class="number">110</span>,<span class="number">90</span>,<span class="number">300</span>,<span class="number">700</span>,<span class="number">2000</span>,<span class="number">5000</span>,<span class="number">10000</span>])</span><br><span class="line"><span class="comment"># 绘图</span></span><br><span class="line">s.plot</span><br><span class="line">例<span class="number">2</span>:</span><br><span class="line">x = np.arange(-np.pi,np.pi,<span class="number">0.1</span>)</span><br><span class="line">y = np.sin(x) + <span class="number">2</span>*np.cos(x)</span><br><span class="line">s1 = Series(index=x,data=y)</span><br><span class="line">s1.plot(kind=<span class="string">'line'</span>)</span><br></pre></td></tr></table></figure>
+<p><strong>DataFrame线形图</strong></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">例<span class="number">1</span>:</span><br><span class="line"><span class="comment"># 先生成一个dataframe</span></span><br><span class="line">columns = [<span class="string">'dancer'</span>,<span class="string">'lucy'</span>,<span class="string">'mery'</span>]</span><br><span class="line">index = [<span class="string">'first'</span>,<span class="string">'second'</span>,<span class="string">'third'</span>,<span class="string">'fouth'</span>]</span><br><span class="line">data = np.random.randint(<span class="number">0</span>,<span class="number">150</span>,size=(<span class="number">4</span>,<span class="number">3</span>))</span><br><span class="line">df = DataFrame(data=data,index=index,columns=columns)</span><br><span class="line"><span class="comment"># 绘图</span></span><br><span class="line">df.plot()</span><br><span class="line">例<span class="number">2</span>:</span><br><span class="line"><span class="comment"># 读取dataframe文件并绘图</span></span><br><span class="line">score = pd.read_excel(<span class="string">'score.xls'</span>)</span><br><span class="line">score.plot()</span><br></pre></td></tr></table></figure>
+<h4 id="柱状图"><a href="#柱状图" class="headerlink" title="柱状图"></a>柱状图</h4><p><strong>Series柱状图示例,kind = ‘bar’/‘barh’</strong></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成一个series</span></span><br><span class="line">s = Series(index=[<span class="string">'dancer'</span>,<span class="string">'mery'</span>,<span class="string">'lucy'</span>],data=[<span class="number">100</span>,<span class="number">98</span>,<span class="number">60</span>])</span><br><span class="line"><span class="comment"># 生成柱状图(纵向)</span></span><br><span class="line">s.plot(kind=<span class="string">'bar'</span>)</span><br><span class="line"><span class="comment"># 生成柱状图(横向)</span></span><br><span class="line">s.plot(kind=<span class="string">'barh'</span>)</span><br></pre></td></tr></table></figure>
+<p><strong>DataFrame柱状图示例</strong></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 先生成一个dataframe</span></span><br><span class="line">data = np.random.randint(<span class="number">0</span>,<span class="number">100</span>,size=(<span class="number">5</span>,<span class="number">3</span>))</span><br><span class="line">index = list(<span class="string">'ABCDE'</span>)</span><br><span class="line">columns = [<span class="string">'python'</span>,<span class="string">'java'</span>,<span class="string">'php'</span>]</span><br><span class="line">df = DataFrame(data=data,index=index,columns=columns)</span><br><span class="line"><span class="comment"># 生成柱状图(纵向)</span></span><br><span class="line">df.plot(kind=<span class="string">'bar'</span>)</span><br><span class="line"><span class="comment"># 生成柱状图(横向)</span></span><br><span class="line">df.plot(kind=<span class="string">'barh'</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="直方图"><a href="#直方图" class="headerlink" title="直方图"></a>直方图</h4><p>rondom生成随机数百分比直方图，调用hist方法</p>
+<ul>
+<li>柱高表示数据的频数，柱宽表示各组数据的组距</li>
+<li>参数bins可以设置直方图方柱的个数上限，越大柱宽越小，数据分组越细致</li>
+<li>设置normed参数为True，可以把频数转换为概率</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成一个series</span></span><br><span class="line">s = Series(data = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">9</span>,<span class="number">9</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 直方图会受到bins（数据分区的个数）影响很大</span></span><br><span class="line"><span class="comment"># 设置normed参数为True，直方图表示的是每一个数出现的概率</span></span><br><span class="line"><span class="comment"># 绘制直方图,并设置相关参数</span></span><br><span class="line">s.plot(kind=<span class="string">'hist'</span>,bins=<span class="number">3</span>,normed=<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 为了避免歧义，直方图会跟核密度估计函数一起使用</span></span><br><span class="line"><span class="comment"># kde图：核密度估计，用于弥补直方图由于参数bins设置的不合理导致的精度缺失问题</span></span><br><span class="line"><span class="comment"># 增画一条核密度估计</span></span><br><span class="line">s.plot(kind=<span class="string">'kde'</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="散布图"><a href="#散布图" class="headerlink" title="散布图"></a>散布图</h4><p>散布图 散布图是观察两个一维数据数列之间的关系的有效方法,DataFrame对象可用</p>
+<p>使用方法： 设置kind = ‘scatter’，给明标签columns</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成一个数据正态分布的dataframe</span></span><br><span class="line">data = np.random.normal(size=(<span class="number">1000</span>,<span class="number">4</span>))</span><br><span class="line">columns = list(<span class="string">'ABCD'</span>)</span><br><span class="line">df = DataFrame(data=data,columns=columns)</span><br><span class="line"><span class="comment"># 绘制散布图</span></span><br><span class="line">df.plot(x=<span class="string">'A'</span>,y=<span class="string">'B'</span>,kind=<span class="string">'scatter'</span>)</span><br></pre></td></tr></table></figure>
+<p>散布图矩阵，当有多个点时，两两点的关系</p>
+<p>使用函数：pd.plotting.scatter_matrix(),</p>
+<ul>
+<li>参数diagnol：设置对角线的图像类型</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.plotting.scatter_matrix(df,diagonal=<span class="string">'kde'</span>)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/scipy/" rel="tag"># scipy</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/24/02_Matplotlib/" rel="next" title="Matplotlib">
+                <i class="fa fa-chevron-left"></i> Matplotlib
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/10/03_K-近邻算法（KNN）/" rel="prev" title="K-近邻算法（KNN）">
+                K-近邻算法（KNN） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Jerry Lei</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">Artikel</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/folder/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">Kategorien</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">Tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/JerryLei-leijun" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:jerrylei439921481@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Scipy"><span class="nav-number">1.</span> <span class="nav-text">Scipy</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#傅里叶变换与运算消噪-登月图片消噪"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">傅里叶变换与运算消噪(登月图片消噪)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数值积分-求解圆周率"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">数值积分 求解圆周率</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#scipy文件的输入与输出"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">scipy文件的输入与输出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#misc-的imrotate-resize-imfilter-操作"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">misc 的imrotate, resize ,imfilter 操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用scipy-ndimage处理图片"><span class="nav-number">1.0.0.5.</span> <span class="nav-text">使用scipy.ndimage处理图片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#gaussian-高斯滤波-参数sigma-median-中值滤波-参数size-signal-维纳滤波-参数-mysize"><span class="nav-number">1.0.0.6.</span> <span class="nav-text">gaussian 高斯滤波 参数sigma,median 中值滤波 参数size, signal 维纳滤波 参数 mysize</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Pandas"><span class="nav-number">2.</span> <span class="nav-text">Pandas</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#线形图"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">线形图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#柱状图"><span class="nav-number">2.0.0.2.</span> <span class="nav-text">柱状图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#直方图"><span class="nav-number">2.0.0.3.</span> <span class="nav-text">直方图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#散布图"><span class="nav-number">2.0.0.4.</span> <span class="nav-text">散布图</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jerry Lei</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.4.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+  
+  
+  
+  
+  
+  
+</body>
+</html>
