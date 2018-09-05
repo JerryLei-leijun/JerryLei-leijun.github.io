@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[celery的简单安装及应用]]></title>
+    <url>%2F2016%2F06%2F13%2FCelery%E7%9A%84%E7%AE%80%E5%8D%95%E5%AE%89%E8%A3%85%E4%B8%8E%E5%BA%94%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[Celery介绍Celery 是一个简单、灵活且可靠的，处理大量消息的分布式系统，并且提供维护这样一个系统的必需工具。它是一个专注于实时处理的任务队列，同时也支持任务调度。但Celery本身不提供队列服务，官方推荐使用RabbitMQ或Redis来实现消息队列服务，前者是更好的选择，它对AMQP（高级消息队列协议）做出了非常好的实现。 所以在使用Celery之前需要在远程服务器(centOS)上部署RabbitMQ,我们这里使用docker来安装,关于为什么使用docker来安装,可以查看我的另一片docker的介绍: 安装RabbitMQ 123456# 安装镜像docker pull rabbitmq# 创建容器名为myrabbit,并运行镜像docker run -d -p 5672:5672 --name myrabbit rabbitmq# 进入此容器docker container exec -it myrabbit /bin/bash 创建用户、资源以及分配操作权限 12345678# 创建用户 自定义用户名username,和密码passwordrabbitmqctl add_user username password# 设置用户为管理员用户rabbitmqctl set_user_tags username administrator# 创建消息队列rabbitmqctl add_vhost myvhost# 给用户分配权限, 读/写/配置 ".*" 表示所有权限rabbitmqctl set_permissions -p myvhost username ".*" ".*" ".*" 创建celery实例(注意这个是在你Django项目中进行的) 12345678910111213141516171819# 下面这段代码,放在你工程目录的init.py文件中project_name = 'name' #这里name填写你的项目名称project_settings = '%s.settings' % project_name# 注册环境变量os.environ.setdefault('DJANGO_SETTINGS_MODULE', project_settings)app = celery.Celery( project_name, # 下面jerry换成你自己服务器配置RabbitMQ的用户名,leijun520换成你自己的密码,ip地址换成你自己的ip地址,端口号如果默认的5672则不用更改, myvhost是你自己创建的消息队列名称 backend='amqp://jerry:leijun520@120.77.222.217:5672/myvhost', broker='amqp://jerry:leijun520@120.77.222.217:5672/myvhost')# 从默认的配置文件读取配置信息app.config_from_object('django.conf:settings')# Celery加载所有注册的应用app.autodiscover_tasks(lambda: settings.INSTALLED_APPS) 启动 celery创建worker(在本地项目中启动) 12# project_name你项目名称, -l 为日志log,info为异常等级,也可以为debug等,&amp;表示启动进程在后台运行celery -A project_name worker -l info &amp; 执行异步任务 123456@app.taskdef send_email(from, to, cc, subject, content): passasync_result = send_email.delay('', [], [], '', '')async_result.get() 创建定时任务 12345678# 导包from celery.schedules import crontabfrom celery.task import periodic_task@periodic_task(run_every=crontab('*', '12,18'))def print_dummy_info(): print('定时任务') 检查定时任务并交给worker执行 1celery -A project_name beat -l info 检查消息队列状况 12# 在配置服务器端执行检查rabbitmqctl list_queues -p myvhost 注: 推荐阅读：《Celery官方文档中文版》，上面有极为详细的配置和使用指南。]]></content>
+      <categories>
+        <category>python Django</category>
+      </categories>
+      <tags>
+        <tag>celery的应用</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[PEP 8风格指南]]></title>
+    <url>%2F2015%2F03%2F03%2FPEP%208%E9%A3%8E%E6%A0%BC%E6%8C%87%E5%8D%97%2F</url>
+    <content type="text"><![CDATA[PEP8简介PEP是Python Enhancement Proposal的缩写，通常翻译为“Python增强提案”。每个PEP都是一份为Python社区提供的指导Python往更好的方向发展的技术文档，其中的第8号增强提案（PEP 8）是针对Python语言编订的代码风格指南。尽管我们可以在保证语法没有问题的前提下随意书写Python代码，但是在实际开发中，采用一致的风格书写出可读性强的代码是每个专业的程序员应该做到的事情，也是每个公司的编程规范中会提出的要求，这些在多人协作开发一个项目（团队开发）的时候显得尤为重要。我们可以从Python官方网站的PEP 8链接中找到该文档，下面我们对该文档的关键部分做一个简单的总结。 空格的使用 使用空格来表示缩进而不要用制表符（Tab）。这一点对习惯了其他编程语言的人来说简直觉得不可理喻，因为绝大多数的程序员都会用Tab来表示缩进，但是要知道Python并没有像C/C++或Java那样的用花括号来构造一个代码块的语法，在Python中分支和循环结构都使用缩进来表示哪些代码属于同一个级别，鉴于此Python代码对缩进以及缩进宽度的依赖比其他很多语言都强得多。在不同的编辑器中，Tab的宽度可能是2、4或8个字符，甚至是其他更离谱的值，用Tab来表示缩进对Python代码来说可能是一场灾难。 和语法相关的每一层缩进都用4个空格来表示。 每行的字符数不要超过79个字符，如果表达式因太长而占据了多行，除了首行之外的其余各行都应该在正常的缩进宽度上再加上4个空格。 函数和类的定义，代码前后都要用两个空行进行分隔。 在同一个类中，各个方法之间应该用一个空行进行分隔。 二元运算符的左右两侧应该保留一个空格，而且只要一个空格就好。 标识符命名PEP 8倡导用不同的命名风格来命名Python中不同的标识符，以便在阅读代码时能够通过标识符的名称来确定该标识符在Python中扮演了怎样的角色（在这一点上，Python自己的内置模块以及某些第三方模块都做得并不是很好）。 变量、函数和属性应该使用小写字母来拼写，如果有多个单词就使用下划线进行连接。 类中受保护的实例属性，应该以一个下划线开头。 类中私有的实例属性，应该以两个下划线开头。 类和异常的命名，应该每个单词首字母大写。 模块级别的常量，应该采用全大写字母，如果有多个单词就用下划线进行连接。 类的实例方法，应该把第一个参数命名为self以表示对象自身。 类的类方法，应该把第一个参数命名为cls以表示该类自身。 表达式和语句在Python之禅（可以使用import this查看）中有这么一句名言：“There should be one– and preferably only one –obvious way to do it.”，翻译成中文是“做一件事应该有而且最好只有一种确切的做法”，这句话传达的思想在PEP 8中也是无处不在的。 采用内联形式的否定词，而不要把否定词放在整个表达式的前面。例如if a is not b就比if not a is b更容易让人理解。 不要用检查长度的方式来判断字符串、列表等是否为None或者没有元素，应该用if not x这样的写法来检查它。 就算if分支、for循环、except异常捕获等中只有一行代码，也不要将代码和if、for、except等写在一起，分开写才会让代码更清晰。 import语句总是放在文件开头的地方。 引入模块的时候，from math import sqrt比import math更好。 如果有多个import语句，应该将其分为三部分，从上到下分别是Python标准模块、第三方模块和自定义模块，每个部分内部应该按照模块名称的字母表顺序来排列。 注: 本文采集于网上,关注更多python开发知识可关注CSDN 博客 骆昊老师专栏https://me.csdn.net/jackfrued]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>PEP 8风格指南</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2015%2F01%2F06%2F%E6%96%B0%E5%BB%BA%E6%96%87%E6%9C%AC%E6%96%87%E6%A1%A3%2F</url>
+    <content type="text"></content>
+  </entry>
+</search>
