@@ -226,7 +226,7 @@
           
           <li class="menu-item menu-item-home menu-item-active">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Beranda</a>
   </li>
         
         
@@ -234,7 +234,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />Tentang</a>
   </li>
         
         
@@ -250,7 +250,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategori</a>
   </li>
         
         
@@ -258,7 +258,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Arsip</a>
   </li>
 
       
@@ -309,7 +309,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.leijunblog.com/2018/09/03/新建文本文档 - 副本 (15)/">
+    <link itemprop="mainEntityOfPage" href="http://www.leijunblog.com/2016/06/13/Celery的简单安装与应用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jerry Lei">
@@ -328,8 +328,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/03/新建文本文档 - 副本 (15)/" itemprop="url">
-                  Untitled
+                <a class="post-title-link" href="/2016/06/13/Celery的简单安装与应用/" itemprop="url">
+                  celery的简单安装及应用
                 </a>
               
             
@@ -348,23 +348,53 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Diposting di</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-09-03 19:13:32 / Modified: 19:13:22" itemprop="dateCreated datePublished" datetime="2018-09-03T19:13:32+08:00">2018-09-03</time>
+              <time title="Post created: 2016-06-13 00:00:00" itemprop="dateCreated datePublished" datetime="2016-06-13T00:00:00+08:00">2016-06-13</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-09-05 19:52:56" itemprop="dateModified" datetime="2018-09-05T19:52:56+08:00">2018-09-05</time>
               
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Di</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python-Django/" itemprop="url" rel="index"><span itemprop="name">python Django</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -395,7 +425,37 @@
       
         
           
-            
+            <h4 id="Celery介绍"><a href="#Celery介绍" class="headerlink" title="Celery介绍"></a>Celery介绍</h4><p>Celery 是一个简单、灵活且可靠的，处理大量消息的分布式系统，并且提供维护这样一个系统的必需工具。它是一个专注于实时处理的任务队列，同时也支持任务调度。但Celery本身不提供队列服务，官方推荐使用RabbitMQ或Redis来实现消息队列服务，前者是更好的选择，它对AMQP（高级消息队列协议）做出了非常好的实现。</p>
+<p><img src="F:\JerryLei-leijun.github.io\public\images\celery.png" alt=""></p>
+<p>所以在使用Celery之前需要在远程服务器(centOS)上部署RabbitMQ,我们这里使用docker来安装,关于为什么使用docker来安装,可以查看我的另一片docker的介绍:</p>
+<ol>
+<li><p>安装RabbitMQ</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装镜像</span></span><br><span class="line">docker pull rabbitmq</span><br><span class="line"><span class="comment"># 创建容器名为myrabbit,并运行镜像</span></span><br><span class="line">docker run -d -p <span class="number">5672</span>:<span class="number">5672</span> --name myrabbit rabbitmq</span><br><span class="line"><span class="comment"># 进入此容器</span></span><br><span class="line">docker container <span class="keyword">exec</span> -it myrabbit /bin/bash</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建用户、资源以及分配操作权限</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建用户 自定义用户名username,和密码password</span></span><br><span class="line">rabbitmqctl add_user username  password</span><br><span class="line"><span class="comment"># 设置用户为管理员用户</span></span><br><span class="line">rabbitmqctl set_user_tags username administrator</span><br><span class="line"><span class="comment"># 创建消息队列</span></span><br><span class="line">rabbitmqctl add_vhost myvhost</span><br><span class="line"><span class="comment"># 给用户分配权限, 读/写/配置  ".*" 表示所有权限</span></span><br><span class="line">rabbitmqctl set_permissions -p myvhost username <span class="string">".*"</span> <span class="string">".*"</span> <span class="string">".*"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建celery实例(注意这个是在你Django项目中进行的)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下面这段代码,放在你工程目录的init.py文件中</span></span><br><span class="line">project_name = <span class="string">'name'</span> <span class="comment">#这里name填写你的项目名称</span></span><br><span class="line">project_settings = <span class="string">'%s.settings'</span> % project_name</span><br><span class="line"></span><br><span class="line"><span class="comment"># 注册环境变量</span></span><br><span class="line">os.environ.setdefault(<span class="string">'DJANGO_SETTINGS_MODULE'</span>, project_settings)</span><br><span class="line"></span><br><span class="line">app = celery.Celery(</span><br><span class="line">    project_name, </span><br><span class="line">    <span class="comment"># 下面jerry换成你自己服务器配置RabbitMQ的用户名,leijun520换成你自己的密码,ip地址换成你自己的ip地址,端口号如果默认的5672则不用更改, myvhost是你自己创建的消息队列名称</span></span><br><span class="line">    backend=<span class="string">'amqp://jerry:leijun520@120.77.222.217:5672/myvhost'</span>, </span><br><span class="line">    broker=<span class="string">'amqp://jerry:leijun520@120.77.222.217:5672/myvhost'</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 从默认的配置文件读取配置信息</span></span><br><span class="line">app.config_from_object(<span class="string">'django.conf:settings'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Celery加载所有注册的应用</span></span><br><span class="line">app.autodiscover_tasks(<span class="keyword">lambda</span>: settings.INSTALLED_APPS)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动 celery创建worker(在本地项目中启动)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># project_name你项目名称, -l 为日志log,info为异常等级,也可以为debug等,&amp;表示启动进程在后台运行</span><br><span class="line">celery -A project_name worker -l info &amp;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行异步任务</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@app.task</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">send_email</span><span class="params">(from, to, cc, subject, content)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">async_result = send_email.delay(<span class="string">''</span>, [], [], <span class="string">''</span>, <span class="string">''</span>)</span><br><span class="line">async_result.get()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建定时任务</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导包</span></span><br><span class="line"><span class="keyword">from</span> celery.schedules <span class="keyword">import</span> crontab</span><br><span class="line"><span class="keyword">from</span> celery.task <span class="keyword">import</span> periodic_task</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@periodic_task(run_every=crontab('*', '12,18'))</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_dummy_info</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">'定时任务'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>检查定时任务并交给worker执行</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">celery -A project_name beat -l info</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>检查消息队列状况</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在配置服务器端执行检查</span></span><br><span class="line">rabbitmqctl list_queues -p myvhost</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>   注: 推荐阅读：<a href="http://docs.jinkan.org/docs/celery/" target="_blank" rel="noopener">《Celery官方文档中文版》</a>，上面有极为详细的配置和使用指南。</p>
+
           
         
       
@@ -448,7 +508,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.leijunblog.com/2018/09/03/新建文本文档 - 副本 (14)/">
+    <link itemprop="mainEntityOfPage" href="http://www.leijunblog.com/2015/03/03/PEP 8风格指南/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jerry Lei">
@@ -467,8 +527,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/03/新建文本文档 - 副本 (14)/" itemprop="url">
-                  Untitled
+                <a class="post-title-link" href="/2015/03/03/PEP 8风格指南/" itemprop="url">
+                  PEP 8风格指南
                 </a>
               
             
@@ -487,23 +547,53 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Diposting di</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-09-03 19:13:32 / Modified: 19:13:22" itemprop="dateCreated datePublished" datetime="2018-09-03T19:13:32+08:00">2018-09-03</time>
+              <time title="Post created: 2015-03-03 00:00:00" itemprop="dateCreated datePublished" datetime="2015-03-03T00:00:00+08:00">2015-03-03</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-09-05 13:10:58" itemprop="dateModified" datetime="2018-09-05T13:10:58+08:00">2018-09-05</time>
               
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Di</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -534,7 +624,36 @@
       
         
           
-            
+            <h2 id="PEP8简介"><a href="#PEP8简介" class="headerlink" title="PEP8简介"></a>PEP8简介</h2><p>PEP是Python Enhancement Proposal的缩写，通常翻译为“Python增强提案”。每个PEP都是一份为Python社区提供的指导Python往更好的方向发展的技术文档，其中的第8号增强提案（PEP 8）是针对Python语言编订的代码风格指南。尽管我们可以在保证语法没有问题的前提下随意书写Python代码，但是在实际开发中，采用一致的风格书写出可读性强的代码是每个专业的程序员应该做到的事情，也是每个公司的编程规范中会提出的要求，这些在多人协作开发一个项目（团队开发）的时候显得尤为重要。我们可以从Python官方网站的<a href="https://www.python.org/dev/peps/pep-0008/" target="_blank" rel="noopener">PEP 8链接</a>中找到该文档，下面我们对该文档的关键部分做一个简单的总结。</p>
+<h3 id="空格的使用"><a href="#空格的使用" class="headerlink" title="空格的使用"></a>空格的使用</h3><ol>
+<li><u>使用空格来表示缩进而不要用制表符（Tab）。</u>这一点对习惯了其他编程语言的人来说简直觉得不可理喻，因为绝大多数的程序员都会用Tab来表示缩进，但是要知道Python并没有像C/C++或Java那样的用花括号来构造一个代码块的语法，在Python中分支和循环结构都使用缩进来表示哪些代码属于同一个级别，鉴于此Python代码对缩进以及缩进宽度的依赖比其他很多语言都强得多。在不同的编辑器中，Tab的宽度可能是2、4或8个字符，甚至是其他更离谱的值，用Tab来表示缩进对Python代码来说可能是一场灾难。</li>
+<li><u>和语法相关的每一层缩进都用4个空格来表示。</u></li>
+<li><u>每行的字符数不要超过79个字符，如果表达式因太长而占据了多行，除了首行之外的其余各行都应该在正常的缩进宽度上再加上4个空格。</u></li>
+<li><u>函数和类的定义，代码前后都要用两个空行进行分隔。</u></li>
+<li><u>在同一个类中，各个方法之间应该用一个空行进行分隔。</u></li>
+<li><u>二元运算符的左右两侧应该保留一个空格，而且只要一个空格就好。</u></li>
+</ol>
+<h3 id="标识符命名"><a href="#标识符命名" class="headerlink" title="标识符命名"></a>标识符命名</h3><p>PEP 8倡导用不同的命名风格来命名Python中不同的标识符，以便在阅读代码时能够通过标识符的名称来确定该标识符在Python中扮演了怎样的角色（在这一点上，Python自己的内置模块以及某些第三方模块都做得并不是很好）。</p>
+<ol>
+<li><u>变量、函数和属性应该使用小写字母来拼写，如果有多个单词就使用下划线进行连接。</u></li>
+<li><u>类中受保护的实例属性，应该以一个下划线开头。</u></li>
+<li><u>类中私有的实例属性，应该以两个下划线开头。</u></li>
+<li><u>类和异常的命名，应该每个单词首字母大写。</u></li>
+<li><u>模块级别的常量，应该采用全大写字母，如果有多个单词就用下划线进行连接。</u></li>
+<li><u>类的实例方法，应该把第一个参数命名为<code>self</code>以表示对象自身。</u></li>
+<li><u>类的类方法，应该把第一个参数命名为<code>cls</code>以表示该类自身。</u></li>
+</ol>
+<h3 id="表达式和语句"><a href="#表达式和语句" class="headerlink" title="表达式和语句"></a>表达式和语句</h3><p>在Python之禅（可以使用<code>import this</code>查看）中有这么一句名言：“There should be one– and preferably only one –obvious way to do it.”，翻译成中文是“做一件事应该有而且最好只有一种确切的做法”，这句话传达的思想在PEP 8中也是无处不在的。</p>
+<ol>
+<li><u>采用内联形式的否定词，而不要把否定词放在整个表达式的前面。</u>例如<code>if a is not b</code>就比<code>if not a is b</code>更容易让人理解。</li>
+<li><u>不要用检查长度的方式来判断字符串、列表等是否为<code>None</code>或者没有元素</u>，应该用<code>if not x</code>这样的写法来检查它。</li>
+<li><u>就算<code>if</code>分支、<code>for</code>循环、<code>except</code>异常捕获等中只有一行代码，也不要将代码和<code>if</code>、<code>for</code>、<code>except</code>等写在一起，分开写才会让代码更清晰。</u></li>
+<li><u><code>import</code>语句总是放在文件开头的地方。</u></li>
+<li><u>引入模块的时候，<code>from math import sqrt</code>比<code>import math</code>更好。</u></li>
+<li><u>如果有多个<code>import</code>语句，应该将其分为三部分，从上到下分别是Python标准模块、第三方模块和自定义模块，每个部分内部应该按照模块名称的字母表顺序来排列。</u></li>
+</ol>
+<p>注: 本文采集于网上,关注更多python开发知识可关注CSDN 博客 骆昊老师专栏<a href="https://me.csdn.net/jackfrued" target="_blank" rel="noopener">https://me.csdn.net/jackfrued</a></p>
+
           
         
       
@@ -587,7 +706,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.leijunblog.com/2018/09/03/新建文本文档 - 副本 (13)/">
+    <link itemprop="mainEntityOfPage" href="http://www.leijunblog.com/2015/01/06/新建文本文档/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jerry Lei">
@@ -606,8 +725,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/03/新建文本文档 - 副本 (13)/" itemprop="url">
-                  Untitled
+                <a class="post-title-link" href="/2015/01/06/新建文本文档/" itemprop="url">
+                  Tidak ada title
                 </a>
               
             
@@ -626,992 +745,31 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Diposting di</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-09-03 19:13:32 / Modified: 19:13:22" itemprop="dateCreated datePublished" datetime="2018-09-03T19:13:32+08:00">2018-09-03</time>
+              <time title="Post created: 2015-01-06 00:00:00" itemprop="dateCreated datePublished" datetime="2015-01-06T00:00:00+08:00">2015-01-06</time>
             
 
             
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.leijunblog.com/2018/09/03/新建文本文档 - 副本 (12)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jerry Lei">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LeiJun's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/03/新建文本文档 - 副本 (12)/" itemprop="url">
-                  Untitled
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
-              
-
-              <time title="Created: 2018-09-03 19:13:32 / Modified: 19:13:22" itemprop="dateCreated datePublished" datetime="2018-09-03T19:13:32+08:00">2018-09-03</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.leijunblog.com/2018/09/03/新建文本文档 - 副本 (11)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jerry Lei">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LeiJun's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+                <span class="post-meta-divider">|</span>
                 
-                <a class="post-title-link" href="/2018/09/03/新建文本文档 - 副本 (11)/" itemprop="url">
-                  Untitled
-                </a>
-              
-            
-          </h1>
-        
 
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
                 
-              
-
-              <time title="Created: 2018-09-03 19:13:32 / Modified: 19:13:22" itemprop="dateCreated datePublished" datetime="2018-09-03T19:13:32+08:00">2018-09-03</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.leijunblog.com/2018/09/03/新建文本文档 - 副本 (10)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jerry Lei">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LeiJun's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+                  <span class="post-meta-item-text">Edited on</span>
                 
-                <a class="post-title-link" href="/2018/09/03/新建文本文档 - 副本 (10)/" itemprop="url">
-                  Untitled
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-09-03 19:13:31 / Modified: 19:13:22" itemprop="dateCreated datePublished" datetime="2018-09-03T19:13:31+08:00">2018-09-03</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.leijunblog.com/2018/09/03/新建文本文档 - 副本 (9)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jerry Lei">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LeiJun's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/03/新建文本文档 - 副本 (9)/" itemprop="url">
-                  Untitled
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-09-03 19:13:31 / Modified: 19:13:22" itemprop="dateCreated datePublished" datetime="2018-09-03T19:13:31+08:00">2018-09-03</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.leijunblog.com/2018/09/03/新建文本文档 - 副本 (8)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jerry Lei">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LeiJun's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/03/新建文本文档 - 副本 (8)/" itemprop="url">
-                  Untitled
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-09-03 19:13:31 / Modified: 19:13:22" itemprop="dateCreated datePublished" datetime="2018-09-03T19:13:31+08:00">2018-09-03</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.leijunblog.com/2018/09/03/新建文本文档 - 副本 (7)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jerry Lei">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LeiJun's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/03/新建文本文档 - 副本 (7)/" itemprop="url">
-                  Untitled
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-09-03 19:13:31 / Modified: 19:13:22" itemprop="dateCreated datePublished" datetime="2018-09-03T19:13:31+08:00">2018-09-03</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.leijunblog.com/2018/09/03/新建文本文档 - 副本 (6)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jerry Lei">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LeiJun's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/03/新建文本文档 - 副本 (6)/" itemprop="url">
-                  Untitled
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-09-03 19:13:31 / Modified: 19:13:22" itemprop="dateCreated datePublished" datetime="2018-09-03T19:13:31+08:00">2018-09-03</time>
-            
-
-            
-              
-
+                <time title="Updated at: 2018-09-05 19:53:48" itemprop="dateModified" datetime="2018-09-05T19:53:48+08:00">2018-09-05</time>
               
             
           </span>
@@ -1687,10 +845,6 @@
   </section>
 
   
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
-  </nav>
-
 
 
           </div>
@@ -1731,8 +885,8 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">16</span>
-                    <span class="site-state-item-name">posts</span>
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">posting</span>
                   </a>
                 </div>
               
@@ -1746,8 +900,10 @@
                     
                       
                     
-                    <span class="site-state-item-count">1</span>
-                    <span class="site-state-item-name">categories</span>
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">kategori</span>
                   </a>
                 </div>
               
@@ -1761,7 +917,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">1</span>
+                      
+                    
+                    <span class="site-state-item-count">2</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -1837,7 +995,7 @@
 
 
 
-  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.4.0</div>
+  <div class="theme-info">Tema – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.4.0</div>
 
 
 
