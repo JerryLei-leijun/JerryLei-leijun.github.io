@@ -117,7 +117,7 @@
 <meta property="og:site_name" content="LeiJun&#39;s Blog">
 <meta property="og:description" content="什么是SQL注入?所谓SQL注入，就是通过把SQL命令插入到Web表单提交或输入域名或页面请求的查询字符串，最终达到欺骗服务器执行恶意的SQL命令。 SQL注入攻击原理SQL注入攻击指的是通过构建特殊的输入作为参数传入Web应用程序，而这些输入大都是SQL语法里的一些组合，通过执行SQL语句进而执行攻击者所要的操作，其主要原因是程序没有细致地过滤用户输入的数据，致使非法数据侵入系统。 SQL注入分">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-08T03:06:50.999Z">
+<meta property="og:updated_time" content="2018-09-08T03:35:02.415Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL注入攻击">
 <meta name="twitter:description" content="什么是SQL注入?所谓SQL注入，就是通过把SQL命令插入到Web表单提交或输入域名或页面请求的查询字符串，最终达到欺骗服务器执行恶意的SQL命令。 SQL注入攻击原理SQL注入攻击指的是通过构建特殊的输入作为参数传入Web应用程序，而这些输入大都是SQL语法里的一些组合，通过执行SQL语句进而执行攻击者所要的操作，其主要原因是程序没有细致地过滤用户输入的数据，致使非法数据侵入系统。 SQL注入分">
@@ -426,7 +426,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2018-09-08 11:06:50" itemprop="dateModified" datetime="2018-09-08T11:06:50+08:00">2018-09-08</time>
+                <time title="Updated at: 2018-09-08 11:35:02" itemprop="dateModified" datetime="2018-09-08T11:35:02+08:00">2018-09-08</time>
               
             
           </span>
@@ -502,8 +502,8 @@
 <h6 id="2-使用存储过程"><a href="#2-使用存储过程" class="headerlink" title="2 使用存储过程"></a>2 使用存储过程</h6><p>除了使用预编译语句外，我们还可以使用安全的存储过程对抗SQL注入。使用存储过程的效果和使用预编译语句类似，其区别就是存储过程需要先将SQL语句定义在数据库中。但需要注意的是，存储过程中也可能会存在注入问题，因此应该尽量避免在存储过程内使用动态的SQL语句，如果无法避免，则应该使用严格的输入过滤或者是编码函数来处理用户的输入数据。</p>
 <h6 id="3-检查数据类型"><a href="#3-检查数据类型" class="headerlink" title="3 检查数据类型"></a>3 检查数据类型</h6><p>检查输入数据的数据类型，在很大程度上可以对抗SQL注入。</p>
 <h6 id="4-使用安全函数"><a href="#4-使用安全函数" class="headerlink" title="4 使用安全函数"></a>4 使用安全函数</h6><p>一般来说，各种web语言都实现了一些编码函数，可以帮助对抗SQL注入。</p>
-<p>​             在最后，从数据库自身的角度来说，应该使用最小权限原则，避免web应用直接使用root、dbowner等高权限账户直接连接数据库。如果有多个不同的应用在使用同一个数据库，则也应该为每个应用分配不同的账户。Web应用使用的数据库账户，不应该创建自定义函数、操作本地文件的权限。除了SQL注入外，在web安全领域还有其他的攻击注入，这些注入攻击都有相同的特点，就是违背了“<strong>数据与代码分离</strong>”原则。</p>
-
+<pre><code>在最后，从数据库自身的角度来说，应该使用最小权限原则，避免web应用直接使用root、dbowner等高权限账户直接连接数据库。如果有多个不同的应用在使用同一个数据库，则也应该为每个应用分配不同的账户。Web应用使用的数据库账户，不应该创建自定义函数、操作本地文件的权限。除了SQL注入外，在web安全领域还有其他的攻击注入，这些注入攻击都有相同的特点，就是违背了“**数据与代码分离**”原则。
+</code></pre><a id="more"></a>
       
     </div>
 
@@ -632,7 +632,7 @@
                 
                 
                 <div class="site-state-item site-state-categories">
-                  <a href="/folder/index.html">
+                  <a href="/categories/index.html">
                     
                     
                       
