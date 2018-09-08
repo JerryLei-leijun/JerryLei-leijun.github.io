@@ -109,21 +109,25 @@
 
 
 
-  <meta name="keywords" content="python Linux Django Flask Docker Spider">
-<meta property="og:type" content="website">
-<meta property="og:title" content="LeiJun&#39;s Blog">
-<meta property="og:url" content="http://www.leijunblog.com/archives/2016/index.html">
+  <meta name="description" content="什么是点击劫持(ClickJacking) 点击劫持(ClickJacking)是一种视觉上的欺骗手段，攻击者使用一个透明的、不可见的iframe，覆盖在一个网页上，然后诱使用户在该网页上进行操作，此时用户在不知情的情况下点击了透明的iframe页面。通过调整iframe页面的位置，可以诱使用户恰好点击在iframe页面的一些功能性按钮上; 点击劫持与CSRF攻击有异曲同工之妙，都是在用户不知道情">
+<meta name="keywords" content="点击劫持攻击">
+<meta property="og:type" content="article">
+<meta property="og:title" content="点击劫持攻击">
+<meta property="og:url" content="http://www.leijunblog.com/2015/08/11/点击劫持攻击/index.html">
 <meta property="og:site_name" content="LeiJun&#39;s Blog">
+<meta property="og:description" content="什么是点击劫持(ClickJacking) 点击劫持(ClickJacking)是一种视觉上的欺骗手段，攻击者使用一个透明的、不可见的iframe，覆盖在一个网页上，然后诱使用户在该网页上进行操作，此时用户在不知情的情况下点击了透明的iframe页面。通过调整iframe页面的位置，可以诱使用户恰好点击在iframe页面的一些功能性按钮上; 点击劫持与CSRF攻击有异曲同工之妙，都是在用户不知道情">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-09-08T02:43:35.803Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeiJun&#39;s Blog">
+<meta name="twitter:title" content="点击劫持攻击">
+<meta name="twitter:description" content="什么是点击劫持(ClickJacking) 点击劫持(ClickJacking)是一种视觉上的欺骗手段，攻击者使用一个透明的、不可见的iframe，覆盖在一个网页上，然后诱使用户在该网页上进行操作，此时用户在不知情的情况下点击了透明的iframe页面。通过调整iframe页面的位置，可以诱使用户恰好点击在iframe页面的一些功能性按钮上; 点击劫持与CSRF攻击有异曲同工之妙，都是在用户不知道情">
 
 
 
 
 
 
-  <link rel="canonical" href="http://www.leijunblog.com/archives/2016/"/>
+  <link rel="canonical" href="http://www.leijunblog.com/2015/08/11/点击劫持攻击/"/>
 
 
 
@@ -133,7 +137,7 @@
   };
 </script>
 
-  <title>Archiv | LeiJun's Blog</title>
+  <title>点击劫持攻击 | LeiJun's Blog</title>
   
 
 
@@ -180,7 +184,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 	
 	<a href="https://github.com/JerryLei-leijun"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
@@ -256,7 +260,7 @@
         
         
           
-          <li class="menu-item menu-item-archives menu-item-active">
+          <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
   </li>
@@ -320,28 +324,6 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
 
 <!-- 新增访客统计代码 -->
 
@@ -369,191 +351,246 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.leijunblog.com/2015/08/11/点击劫持攻击/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jerry Lei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/leijun.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LeiJun's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">点击劫持攻击
+              
+            
+          </h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2015-08-11 00:00:00" itemprop="dateCreated datePublished" datetime="2015-08-11T00:00:00+08:00">2015-08-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-09-08 10:43:35" itemprop="dateModified" datetime="2018-09-08T10:43:35+08:00">2018-09-08</time>
+              
+            
+          </span>
+
           
-        
-        Öhm..! Insgesamt 7 Artikel. Bleib dran.
-      </span>
-      
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/network-security/" itemprop="url" rel="index"><span itemprop="name">network security</span></a></span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2016">2016</h1>
-          </div>
-        
-        
 
-        
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/08/11/点击劫持攻击/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count fb-comments-count" data-href="http://www.leijunblog.com/2015/08/11/点击劫持攻击/" itemprop="commentCount">0</span>
+                </a>
+              </span>
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2016/12/08/CSRF攻击与防御/" itemprop="url">
-              
-                <span itemprop="name">CSRF攻击与防御</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-12-08T00:00:00+08:00"
-              content="2016-12-08" >
-          12-08
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2016/06/13/Celery的简单安装与应用/" itemprop="url">
-              
-                <span itemprop="name">celery的简单安装及应用</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-06-13T00:00:00+08:00"
-              content="2016-06-13" >
-          06-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2016/01/06/SQL注入攻击/" itemprop="url">
-              
-                <span itemprop="name">SQL注入攻击</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-01-06T00:00:00+08:00"
-              content="2016-01-06" >
-          01-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2016/01/06/如何预防XSS攻击/" itemprop="url">
-              
-                <span itemprop="name">如何预防XSS攻击?</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-01-06T00:00:00+08:00"
-              content="2016-01-06" >
-          01-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <h4 id="什么是点击劫持-ClickJacking"><a href="#什么是点击劫持-ClickJacking" class="headerlink" title="什么是点击劫持(ClickJacking)"></a>什么是点击劫持(ClickJacking)</h4><ul>
+<li>点击劫持(ClickJacking)是一种视觉上的欺骗手段，攻击者使用一个透明的、不可见的iframe，覆盖在一个网页上，然后诱使用户在该网页上进行操作，此时用户在不知情的情况下点击了透明的iframe页面。通过调整iframe页面的位置，可以诱使用户恰好点击在iframe页面的一些功能性按钮上;</li>
+<li>点击劫持与CSRF攻击有异曲同工之妙，都是在用户不知道情况下进行的攻击。但是：在CSRF中，如果出现用户交互的页面，则攻击可能无法顺利完成。与之相反的是，点击劫持没有这个顾虑，他利用的就是与用户产生交互的页面。</li>
+</ul>
+<h4 id="几种常见点击劫持手段"><a href="#几种常见点击劫持手段" class="headerlink" title="几种常见点击劫持手段"></a>几种常见点击劫持手段</h4><ul>
+<li><h6 id="flash点击劫持"><a href="#flash点击劫持" class="headerlink" title="flash点击劫持"></a>flash点击劫持</h6><p>攻击者通过Flash构造出了点击劫持，在完成一系列复杂的动作之后，最终控制了用户的摄像头，原理：黑客在Flash游戏页面内嵌了一个iframe，通过游戏选项按钮诱导用户去点击按钮，从而最终实现Flash点击劫持！每次点击完成之后按钮的位置都是可变化的、移动的。</p>
+</li>
+<li><h6 id="图片覆盖劫持-XSIO"><a href="#图片覆盖劫持-XSIO" class="headerlink" title="图片覆盖劫持(XSIO)"></a>图片覆盖劫持(XSIO)</h6><p>点击劫持的本质就是一种视觉欺骗，通过这种思想，黑客可以完成很多劫持，例如：钓鱼网站的实现，通过图片覆盖导致链接到一些未知的网站，从而达到黑客正真的目的。原理：通过调整图片的style使得图片能够覆盖在他所指定的任意位置。</p>
+<p>XSIO不同于XSS，它利用的是图片的style，或者能够控制CSS。如果应用没有限制style的position为absolute的话，图片就可以覆盖到页面上的任意位置，形成点击劫持。</p>
+</li>
+<li><h6 id="拖拽劫持"><a href="#拖拽劫持" class="headerlink" title="拖拽劫持"></a>拖拽劫持</h6><p>目前很多浏览器都开始支持Drag&amp;Drop的API。对于用户来说，拖拽他们的操作更加简单。浏览器拖拽的对象可以是一个连接，也可以是一段文字，还可以从一个窗口拖拽到另外一个窗口，因此拖拽不受同源策略的影响。</p>
+<p>“拖拽劫持”的思路是诱使用户从隐藏的不可见iframe中拖拽出攻击者希望得到的数据，然后放到攻击者能够控制的另外一个页面，从而窃取数据。</p>
+</li>
+<li><h6 id="触屏劫持（TapJacking）"><a href="#触屏劫持（TapJacking）" class="headerlink" title="触屏劫持（TapJacking）"></a>触屏劫持（TapJacking）</h6><p>触屏，从手机OS的角度来看，触屏实际上就是一个事件，手机OS捕捉这些事件，并执行相应的动作。</p>
+<p>一次触屏操作，可能会对应一下几个事件的发生：</p>
+<p>（1）touchstart，手指触摸屏幕时发生；</p>
+<p>（2）Touchend，手指离开屏幕时发生；</p>
+<p>（3）Touchmove，手指滑动时发生；</p>
+<p>（4）Touchcancel，系统可取消touch事件</p>
+</li>
+</ul>
+<h4 id="如何预防"><a href="#如何预防" class="headerlink" title="如何预防"></a>如何预防</h4><ul>
+<li><h6 id="进制跨域iframe"><a href="#进制跨域iframe" class="headerlink" title="进制跨域iframe"></a>进制跨域iframe</h6><p>通常可以写一段JavaScript代码，以禁止iframe的嵌套。这种方法叫做frame busting。</p>
+</li>
+<li><h6 id="X-Frame-Options"><a href="#X-Frame-Options" class="headerlink" title="X-Frame-Options"></a>X-Frame-Options</h6><p>因为frame busting存在被绕过的可能，所以我们需要寻找更好的解决方案。一个比较好的解决方案就是使用一个http头—X-Frame-Options</p>
+<p>它有三个可选的值：DENY   SAMEORIGIN    ALLOW-FROM-origin</p>
+<p>当值为deny时，浏览器会拒绝当前页面加载任何frame页面；若值为SAMEORIGIN  ，则frame页面的地址只能为同源域名下面的页面；若值为ALLOW-FROM-origin，则可以定义允许frame加载页面地址。</p>
+<p>除以上方式以外：Firefox的“Content Security Policy”以及Firefox的NoScript扩展也能够有效防御ClickJacking.</p>
+</li>
+</ul>
+<ul>
+<li><h6 id="H5中的sandbox属性"><a href="#H5中的sandbox属性" class="headerlink" title="H5中的sandbox属性"></a>H5中的sandbox属性</h6><p>在HTML 5中，专门为iframe定义了一个新的属性，叫做sandbox；使用sandbox这一个属性后，<iframe>标签加载的内容将被视为一个独立的“源”，其中的脚本将被禁止执行，表单被禁止提交，插件被禁止加载，指向其他浏览器对象的连接也会被禁止。</iframe></p>
+</li>
+</ul>
 
       
-
     </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/点击劫持攻击/" rel="tag"># 点击劫持攻击</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/03/03/PEP 8风格指南/" rel="next" title="PEP 8风格指南">
+                <i class="fa fa-chevron-left"></i> PEP 8风格指南
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/01/06/如何预防XSS攻击/" rel="prev" title="如何预防XSS攻击?">
+                如何预防XSS攻击? <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -574,8 +611,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -678,6 +724,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是点击劫持-ClickJacking"><span class="nav-number">1.</span> <span class="nav-text">什么是点击劫持(ClickJacking)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#几种常见点击劫持手段"><span class="nav-number">2.</span> <span class="nav-text">几种常见点击劫持手段</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#flash点击劫持"><span class="nav-number">2.0.1.</span> <span class="nav-text">flash点击劫持</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#图片覆盖劫持-XSIO"><span class="nav-number">2.0.2.</span> <span class="nav-text">图片覆盖劫持(XSIO)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#拖拽劫持"><span class="nav-number">2.0.3.</span> <span class="nav-text">拖拽劫持</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#触屏劫持（TapJacking）"><span class="nav-number">2.0.4.</span> <span class="nav-text">触屏劫持（TapJacking）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何预防"><span class="nav-number">3.</span> <span class="nav-text">如何预防</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#进制跨域iframe"><span class="nav-number">3.0.1.</span> <span class="nav-text">进制跨域iframe</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#X-Frame-Options"><span class="nav-number">3.0.2.</span> <span class="nav-text">X-Frame-Options</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#H5中的sandbox属性"><span class="nav-number">3.0.3.</span> <span class="nav-text">H5中的sandbox属性</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -824,6 +886,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.0"></script>
+
+
 
   
 
