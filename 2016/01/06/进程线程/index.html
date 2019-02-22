@@ -109,21 +109,25 @@
 
 
 
-  <meta name="keywords" content="python Linux Django Flask Docker Spider">
-<meta property="og:type" content="website">
-<meta property="og:title" content="LeiJun&#39;s Blog">
-<meta property="og:url" content="http://www.leijunblog.com/categories/network-security/index.html">
+  <meta name="description" content="进程什么是进程?打开任务管理器,看到的每一个任务就是一个进程,所以多进程,也叫多任务,下面讲讲多任务的由来: 1， 早期的计算机是没有操作系统的，只有输入，计算，输出。手工输入速度远低于计算机的计算速度。 2， 于是出现了批处理操作系统，通过纸带，磁带等工具预先写入指令，形成一个指令清单（即任务）交给计算机处理。但批处理系统的缺点是只能有一个任务，而且当计算机在进行I/O处理时，CPU是空闲的。">
+<meta name="keywords" content="进程线程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="进程线程">
+<meta property="og:url" content="http://www.leijunblog.com/2016/01/06/进程线程/index.html">
 <meta property="og:site_name" content="LeiJun&#39;s Blog">
+<meta property="og:description" content="进程什么是进程?打开任务管理器,看到的每一个任务就是一个进程,所以多进程,也叫多任务,下面讲讲多任务的由来: 1， 早期的计算机是没有操作系统的，只有输入，计算，输出。手工输入速度远低于计算机的计算速度。 2， 于是出现了批处理操作系统，通过纸带，磁带等工具预先写入指令，形成一个指令清单（即任务）交给计算机处理。但批处理系统的缺点是只能有一个任务，而且当计算机在进行I/O处理时，CPU是空闲的。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-09-17T09:23:51.323Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeiJun&#39;s Blog">
+<meta name="twitter:title" content="进程线程">
+<meta name="twitter:description" content="进程什么是进程?打开任务管理器,看到的每一个任务就是一个进程,所以多进程,也叫多任务,下面讲讲多任务的由来: 1， 早期的计算机是没有操作系统的，只有输入，计算，输出。手工输入速度远低于计算机的计算速度。 2， 于是出现了批处理操作系统，通过纸带，磁带等工具预先写入指令，形成一个指令清单（即任务）交给计算机处理。但批处理系统的缺点是只能有一个任务，而且当计算机在进行I/O处理时，CPU是空闲的。">
 
 
 
 
 
 
-  <link rel="canonical" href="http://www.leijunblog.com/categories/network-security/"/>
+  <link rel="canonical" href="http://www.leijunblog.com/2016/01/06/进程线程/"/>
 
 
 
@@ -133,7 +137,7 @@
   };
 </script>
 
-  <title>Kategorie: network security | LeiJun's Blog</title>
+  <title>进程线程 | LeiJun's Blog</title>
   
 
 
@@ -180,7 +184,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 	
 	<a href="https://github.com/JerryLei-leijun"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
@@ -248,7 +252,7 @@
         
         
           
-          <li class="menu-item menu-item-categories menu-item-active">
+          <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
   </li>
@@ -320,28 +324,6 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
 
 <!-- 新增访客统计代码 -->
 
@@ -369,143 +351,243 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block category">
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>network security<small>Kategorie</small>
-        </h1>
-      </div>
-
-      
-        
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.leijunblog.com/2016/01/06/进程线程/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jerry Lei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/leijun.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LeiJun's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2016/12/08/CSRF攻击与防御/" itemprop="url">
-              
-                <span itemprop="name">CSRF攻击与防御</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">进程线程
+              
+            
+          </h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-12-08T00:00:00+08:00"
-              content="2016-12-08" >
-          12-08
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
 
-    </header>
-  </article>
+            
+            
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2016-01-06 00:00:00" itemprop="dateCreated datePublished" datetime="2016-01-06T00:00:00+08:00">2016-01-06</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-09-17 17:23:51" itemprop="dateModified" datetime="2018-09-17T17:23:51+08:00">2018-09-17</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/01/06/进程线程/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count fb-comments-count" data-href="http://www.leijunblog.com/2016/01/06/进程线程/" itemprop="commentCount">0</span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2016/01/06/如何预防XSS攻击/" itemprop="url">
-              
-                <span itemprop="name">如何预防XSS攻击?</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-01-06T00:00:00+08:00"
-              content="2016-01-06" >
-          01-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2016/01/06/SQL注入攻击/" itemprop="url">
-              
-                <span itemprop="name">SQL注入攻击</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-01-06T00:00:00+08:00"
-              content="2016-01-06" >
-          01-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2015/08/11/点击劫持攻击/" itemprop="url">
-              
-                <span itemprop="name">点击劫持攻击</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2015-08-11T00:00:00+08:00"
-              content="2015-08-11" >
-          08-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+        <h4 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h4><p>什么是进程?打开任务管理器,看到的每一个任务就是一个进程,所以多进程,也叫多任务,下面讲讲多任务的由来:</p>
+<p>1， 早期的计算机是没有操作系统的，只有输入，计算，输出。手工输入速度远低于计算机的计算速度。</p>
+<p>2， 于是出现了批处理操作系统，通过纸带，磁带等工具预先写入指令，形成一个指令清单（即任务）交给计算机处理。但批处理系统的缺点是只能有一个任务，而且当计算机在进行I/O处理时，CPU是空闲的。</p>
+<p>3， 世人发明了进程，一个进程就代表一个任务，多个进程通过分时操作能让用户认为并行操作多任务，进程间的资源是独立单元，但是可以通过介质进行通信。缺点：进程内只进行串行处理，无法很好地分工合作提高处理效率。</p>
+<p>4， 于是就有了操作系统调度的最小单元-线程，线程能够使进程内的子任务能够共享进程内的资源，并并行工作，大大提高操作系统的性能。</p>
+<p>区别：<br>线程是任务调度的最小单元，共用进程内的资源。<br>进程是资源分配的最小单元，与其他进程资源互相独立。</p>
+<h4 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h4><p>在一个进程的内部，要同时干多件事，就需要同时运行多个“子任务”，我们把进程内的这些“子任务”叫做线程。</p>
+<p>线程通常叫做轻型的进程。线程是共享内存空间的并发执行的多任务，每一个线程都共享一个进程的资源。</p>
+<p>线程是最小的执行单元，而进程由至少一个线程组成。如何调度进程和线程，完全由操作系统决定，程序自己不能决定什么时候执行，执行多长时间。</p>
+<p>模块<br>1、_thread模块       低级模块，接近底层。<br>2、threading模块     高级模块，对_thread进行了封装</p>
+<h4 id="python中的多线程是假的多线程"><a href="#python中的多线程是假的多线程" class="headerlink" title="python中的多线程是假的多线程!"></a>python中的多线程是假的多线程!</h4><p>为什么这么说，我们先明确一个概念，全局解释器锁（GIL）global interpreter lock</p>
+<p>Python代码的执行由Python虚拟机（解释器）来控制,同时只有一个线程在执行</p>
+<p>对Python虚拟机的访问由全局解释器锁（GIL）来控制，<br>正是这个锁能保证同时只有一个线程在运行。</p>
+<p>在多线程环境中，Python虚拟机按照以下方式执行。<br>    1.设置GIL。<br>    2.切换到一个线程去执行。<br>    3.运行。<br>    4.把线程设置为睡眠状态。<br>    5.解锁GIL。<br>    6.再次重复以上步骤。</p>
+<p>比方我有一个4核的CPU，那么这样一来，在单位时间内每个核只能跑一个线程，然后时间片轮转切换。<br>但是Python不一样，它不管你有几个核，单位时间多个核只能跑一个线程，然后时间片轮转。<br>执行一段时间后让出，多线程在Python中只能交替执，100核只能用到1个核<br>例如，下面的代码4核cpu只会用一个核，大概占用25%的cpu使用率。</p>
+<h4 id="进程vs线程"><a href="#进程vs线程" class="headerlink" title="进程vs线程"></a>进程vs线程</h4><p>要实现多任务，通常我们会设计Master-Worker模式，Master负责分配任务，Worker负责执行任务，因此，多任务环境下，通常是一个Master，多个Worker。</p>
+<p>如果用多进程实现Master-Worker，主进程就是Master，其他进程就是Worker。</p>
+<p>如果用多线程实现Master-Worker，主线程就是Master，其他线程就是Worker。</p>
+<p>多进程模式最大的优点就是稳定性高，因为一个子进程崩溃了，不会影响主进程和其他子进程。（当然主进程挂了所有进程就全挂了，但是Master进程只负责分配任务，挂掉的概率低）著名的Apache最早就是采用多进程模式。</p>
+<p>多进程模式的缺点是创建进程的代价大，在Unix/Linux系统下，用<code>fork</code>调用还行，在Windows下创建进程开销巨大。另外，操作系统能同时运行的进程数也是有限的，在内存和CPU的限制下，如果有几千个进程同时运行，操作系统连调度都会成问题。</p>
+<p>多线程模式通常比多进程快一点，但是也快不到哪去，而且，多线程模式致命的缺点就是任何一个线程挂掉都可能直接造成整个进程崩溃，因为所有线程共享进程的内存。在Windows上，如果一个线程执行的代码出了问题，你经常可以看到这样的提示：“该程序执行了非法操作，即将关闭”，其实往往是某个线程出了问题，但是操作系统会强制结束整个进程。</p>
+<p>在Windows下，多线程的效率比多进程要高，所以微软的IIS服务器默认采用多线程模式。由于多线程存在稳定性的问题，IIS的稳定性就不如Apache。为了缓解这个问题，IIS和Apache现在又有多进程+多线程的混合模式，真是把问题越搞越复杂。</p>
+<h4 id="计算密集型-vs-IO密集型"><a href="#计算密集型-vs-IO密集型" class="headerlink" title="计算密集型 vs. IO密集型"></a>计算密集型 vs. IO密集型</h4><p>是否采用多任务的第二个考虑是任务的类型。我们可以把任务分为计算密集型和IO密集型。</p>
+<p>计算密集型任务的特点是要进行大量的计算，消耗CPU资源，比如计算圆周率、对视频进行高清解码等等，全靠CPU的运算能力。这种计算密集型任务虽然也可以用多任务完成，但是任务越多，花在任务切换的时间就越多，CPU执行任务的效率就越低，所以，要最高效地利用CPU，计算密集型任务同时进行的数量应当等于CPU的核心数。</p>
+<p>计算密集型任务由于主要消耗CPU资源，因此，代码运行效率至关重要。Python这样的脚本语言运行效率很低，完全不适合计算密集型任务。对于计算密集型任务，最好用C语言编写。</p>
+<p>第二种任务的类型是IO密集型，涉及到网络、磁盘IO的任务都是IO密集型任务，这类任务的特点是CPU消耗很少，任务的大部分时间都在等待IO操作完成（因为IO的速度远远低于CPU和内存的速度）。对于IO密集型任务，任务越多，CPU效率越高，但也有一个限度。常见的大部分任务都是IO密集型任务，比如Web应用。</p>
+<p>IO密集型任务执行期间，99%的时间都花在IO上，花在CPU上的时间很少，因此，用运行速度极快的C语言替换用Python这样运行速度极低的脚本语言，完全无法提升运行效率。对于IO密集型任务，最合适的语言就是开发效率最高（代码量最少）的语言，脚本语言是首选，C语言最差。</p>
+<h4 id="异步IO"><a href="#异步IO" class="headerlink" title="异步IO"></a>异步IO</h4><p>考虑到CPU和IO之间巨大的速度差异，一个任务在执行的过程中大部分时间都在等待IO操作，单进程单线程模型会导致别的任务无法并行执行，因此，我们才需要多进程模型或者多线程模型来支持多任务并发执行。</p>
+<p>现代操作系统对IO操作已经做了巨大的改进，最大的特点就是支持异步IO。如果充分利用操作系统提供的异步IO支持，就可以用单进程单线程模型来执行多任务，这种全新的模型称为事件驱动模型，Nginx就是支持异步IO的Web服务器，它在单核CPU上采用单进程模型就可以高效地支持多任务。在多核CPU上，可以运行多个进程（数量与CPU核心数相同），充分利用多核CPU。由于系统总的进程数量十分有限，因此操作系统调度非常高效。用异步IO编程模型来实现多任务是一个主要的趋势。</p>
+<p>对应到Python语言，单线程的异步编程模型称为协程，有了协程的支持，就可以基于事件驱动编写高效的多任务程序。</p>
+<p>以I/O为瓶颈的程序正是协程所擅长的 !</p>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/进程线程/" rel="tag"># 进程线程</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/10/06/python内存管理机制/" rel="next" title="python内存管理">
+                <i class="fa fa-chevron-left"></i> python内存管理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/01/06/SQL注入攻击/" rel="prev" title="SQL注入攻击">
+                SQL注入攻击 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -526,8 +608,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -638,6 +729,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#进程"><span class="nav-number">1.</span> <span class="nav-text">进程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线程"><span class="nav-number">2.</span> <span class="nav-text">线程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#python中的多线程是假的多线程"><span class="nav-number">3.</span> <span class="nav-text">python中的多线程是假的多线程!</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#进程vs线程"><span class="nav-number">4.</span> <span class="nav-text">进程vs线程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#计算密集型-vs-IO密集型"><span class="nav-number">5.</span> <span class="nav-text">计算密集型 vs. IO密集型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#异步IO"><span class="nav-number">6.</span> <span class="nav-text">异步IO</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -784,6 +891,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.0"></script>
+
+
 
   
 

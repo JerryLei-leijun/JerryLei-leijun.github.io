@@ -109,21 +109,25 @@
 
 
 
-  <meta name="keywords" content="python Linux Django Flask Docker Spider">
-<meta property="og:type" content="website">
-<meta property="og:title" content="LeiJun&#39;s Blog">
-<meta property="og:url" content="http://www.leijunblog.com/categories/network-security/index.html">
+  <meta name="description" content="python的内存管理引用计数: ​    python 内部使用引用计数,来保持追踪内存中的对象,python内部记录了多少个引用,就引用计数,当对象被创建时就创建一个引用计数,当对象不再需要的时候,这个对象的引用计数为0时,他被垃圾回收.    ​    引用计数会增加: 对象被创建;被作为参数传递给函数;作为容器对象的一个元素; ​        引用计数减少:  一个本地引用离开他的作用域">
+<meta name="keywords" content="python内存管理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python内存管理">
+<meta property="og:url" content="http://www.leijunblog.com/2015/10/06/python内存管理机制/index.html">
 <meta property="og:site_name" content="LeiJun&#39;s Blog">
+<meta property="og:description" content="python的内存管理引用计数: ​    python 内部使用引用计数,来保持追踪内存中的对象,python内部记录了多少个引用,就引用计数,当对象被创建时就创建一个引用计数,当对象不再需要的时候,这个对象的引用计数为0时,他被垃圾回收.    ​    引用计数会增加: 对象被创建;被作为参数传递给函数;作为容器对象的一个元素; ​        引用计数减少:  一个本地引用离开他的作用域">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-09-11T12:46:56.167Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeiJun&#39;s Blog">
+<meta name="twitter:title" content="python内存管理">
+<meta name="twitter:description" content="python的内存管理引用计数: ​    python 内部使用引用计数,来保持追踪内存中的对象,python内部记录了多少个引用,就引用计数,当对象被创建时就创建一个引用计数,当对象不再需要的时候,这个对象的引用计数为0时,他被垃圾回收.    ​    引用计数会增加: 对象被创建;被作为参数传递给函数;作为容器对象的一个元素; ​        引用计数减少:  一个本地引用离开他的作用域">
 
 
 
 
 
 
-  <link rel="canonical" href="http://www.leijunblog.com/categories/network-security/"/>
+  <link rel="canonical" href="http://www.leijunblog.com/2015/10/06/python内存管理机制/"/>
 
 
 
@@ -133,7 +137,7 @@
   };
 </script>
 
-  <title>Kategorie: network security | LeiJun's Blog</title>
+  <title>python内存管理 | LeiJun's Blog</title>
   
 
 
@@ -180,7 +184,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 	
 	<a href="https://github.com/JerryLei-leijun"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
@@ -248,7 +252,7 @@
         
         
           
-          <li class="menu-item menu-item-categories menu-item-active">
+          <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
   </li>
@@ -320,28 +324,6 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
 
 <!-- 新增访客统计代码 -->
 
@@ -369,143 +351,225 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block category">
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>network security<small>Kategorie</small>
-        </h1>
-      </div>
-
-      
-        
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.leijunblog.com/2015/10/06/python内存管理机制/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jerry Lei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/leijun.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LeiJun's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2016/12/08/CSRF攻击与防御/" itemprop="url">
-              
-                <span itemprop="name">CSRF攻击与防御</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">python内存管理
+              
+            
+          </h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-12-08T00:00:00+08:00"
-              content="2016-12-08" >
-          12-08
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
 
-    </header>
-  </article>
+            
+            
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2015-10-06 00:00:00" itemprop="dateCreated datePublished" datetime="2015-10-06T00:00:00+08:00">2015-10-06</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-09-11 20:46:56" itemprop="dateModified" datetime="2018-09-11T20:46:56+08:00">2018-09-11</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/10/06/python内存管理机制/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count fb-comments-count" data-href="http://www.leijunblog.com/2015/10/06/python内存管理机制/" itemprop="commentCount">0</span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2016/01/06/如何预防XSS攻击/" itemprop="url">
-              
-                <span itemprop="name">如何预防XSS攻击?</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-01-06T00:00:00+08:00"
-              content="2016-01-06" >
-          01-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2016/01/06/SQL注入攻击/" itemprop="url">
-              
-                <span itemprop="name">SQL注入攻击</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-01-06T00:00:00+08:00"
-              content="2016-01-06" >
-          01-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2015/08/11/点击劫持攻击/" itemprop="url">
-              
-                <span itemprop="name">点击劫持攻击</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2015-08-11T00:00:00+08:00"
-              content="2015-08-11" >
-          08-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+        <h4 id="python的内存管理"><a href="#python的内存管理" class="headerlink" title="python的内存管理"></a>python的内存管理</h4><p><strong>引用计数:</strong></p>
+<p>​    python 内部使用引用计数,来保持追踪内存中的对象,python内部记录了多少个引用,就引用计数,当对象被创建时就创建一个引用计数,当对象不再需要的时候,这个对象的引用计数为0时,他被垃圾回收.   </p>
+<p>​    引用计数会增加: 对象被创建;被作为参数传递给函数;作为容器对象的一个元素;</p>
+<p>​        引用计数减少:  一个本地引用离开他的作用域;对象的别名被显示的销毁;对象的一个别名被赋值给其他对象;窗口对象本身被销毁.         </p>
+<p><strong>垃圾回收:</strong>   </p>
+<p>​    Python不像c++和java语言一样，他们可以不用事先声明变量类型而直接对变量进行赋值，对Python语言来讲，对象的类型和内存都是在运行时确定的。</p>
+<p>​    当内存中有不再使用的部分时，垃圾收集器就会把他们清理掉。他会去检查那些引用计数为0的对象，然后清除其在内存中的空间。当然除了引用计数为0的会被清除，还有一种情况也会被垃圾收集器清掉，当两个对象相互引用时，他们本身其他引用已经为0了。</p>
+<p>垃圾回收机制还有一个循环垃圾回收器，确保释放循环引用对象。</p>
+<p>在Python中，许多时候申请的内存都是小块的内存，这些小块内存在申请后，很快又会被释放，由于这些内存的申请号并不是为了创建对象，所以并没有对象一级的内存池机制，这就意味着Python在运行期间会大量的执行malloc和free操作，频繁的在用户和核心态之间进行切换，这将严重影响Python的执行效率，为了加速Python的执行效率，Python引入了一个内存池机制，用于管理对小块内存的申请和释放。   </p>
+<p><strong>内存池机制:</strong> </p>
+<p>​    Python提供了对内存的垃圾收集机制，但是他将不用的内存放到内存池而不是反回给操作系统。</p>
+<p>Python中所有小于256个字节的对象都是用pymalloc实现的分配器，而大的对象则使用系统的malloc，另外Python对象比如整数浮点数和list都有独立的私有内存池，对象间不共享他们的内存池，也就是说你分配又释放了大量的整数，用于缓存这些整数的内存就不能再分配给浮点数。</p>
+<p>​                                                                                                                     </p>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python内存管理/" rel="tag"># python内存管理</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/08/11/点击劫持攻击/" rel="next" title="点击劫持攻击">
+                <i class="fa fa-chevron-left"></i> 点击劫持攻击
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/01/06/进程线程/" rel="prev" title="进程线程">
+                进程线程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -526,8 +590,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -638,6 +711,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#python的内存管理"><span class="nav-number">1.</span> <span class="nav-text">python的内存管理</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -784,6 +873,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.0"></script>
+
+
 
   
 
