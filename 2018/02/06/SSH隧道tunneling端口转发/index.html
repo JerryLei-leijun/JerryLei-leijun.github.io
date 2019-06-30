@@ -235,7 +235,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
   </li>
         
         
@@ -243,7 +243,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />Über</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
   </li>
         
         
@@ -259,7 +259,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
   </li>
         
         
@@ -267,7 +267,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
   </li>
 
       
@@ -277,7 +277,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />Suche</a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />Search</a>
         </li>
       
     </ul>
@@ -406,14 +406,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-02-06 00:00:00" itemprop="dateCreated datePublished" datetime="2018-02-06T00:00:00+08:00">2018-02-06</time>
+              <time title="Created: 2018-02-06 00:00:00" itemprop="dateCreated datePublished" datetime="2018-02-06T00:00:00+08:00">2018-02-06</time>
             
 
             
@@ -430,7 +430,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2019-06-26 00:29:55" itemprop="dateModified" datetime="2019-06-26T00:29:55+08:00">2019-06-26</time>
+                <time title="Modified: 2019-06-26 00:29:55" itemprop="dateModified" datetime="2019-06-26T00:29:55+08:00">2019-06-26</time>
               
             
           </span>
@@ -444,7 +444,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/network/" itemprop="url" rel="index"><span itemprop="name">network</span></a></span>
@@ -507,49 +507,49 @@
 <p>​    DEMO公司在内部有一台公司WEB服务器C，因为上面的内容是公司内部相关的，因此，只允许通过内部的B机器(代理服务器)进行访问。如果员工A想访问这台WEB服务器，只能经过防火墙认证过滤后进入内网B进行访问。</p>
 <a id="more"></a>
 <h5 id="如上，我们可以认为-A-为本地，-B-为跳板机，-C-为远程服务器-以下用A-B-C表示说明。"><a href="#如上，我们可以认为-A-为本地，-B-为跳板机，-C-为远程服务器-以下用A-B-C表示说明。" class="headerlink" title="如上，我们可以认为 A 为本地， B 为跳板机， C 为远程服务器,  以下用A,B,C表示说明。"></a>如上，我们可以认为 <strong>A</strong> 为本地， <strong>B</strong> 为跳板机， <strong>C</strong> 为远程服务器,  以下用A,B,C表示说明。</h5><p>我们将 C 防火墙打开， 允许外部访问， 在 <strong>C</strong> 机器上使用iptables进行策略部署</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>iptables -A INPUT -s 192.168.4.101 -j ACCEPT  </span><br><span class="line"><span class="meta">#</span>iptables -A INPUT -s 192.168.4.100 -j REJECT</span><br><span class="line"><span class="meta">#</span>iptables -vnL</span><br><span class="line"></span><br><span class="line">Chain INPUT (policy ACCEPT 53 packets, 4347 bytes)</span><br><span class="line"></span><br><span class="line">pkts bytes target     prot opt in     out     source               destination</span><br><span class="line"></span><br><span class="line">0     0 ACCEPT     all  --  *      *       192.168.4.101        0.0.0.0/0</span><br><span class="line"></span><br><span class="line">0     0 REJECT     all  --  *      *       192.168.4.100        0.0.0.0/0           reject-with icmp-port-unreachable</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">iptables -A INPUT -s 192.168.4.101 -j ACCEPT  </span></span><br><span class="line"><span class="meta">#</span><span class="bash">iptables -A INPUT -s 192.168.4.100 -j REJECT</span></span><br><span class="line"><span class="meta">#</span><span class="bash">iptables -vnL</span></span><br><span class="line"></span><br><span class="line">Chain INPUT (policy ACCEPT 53 packets, 4347 bytes)</span><br><span class="line"></span><br><span class="line">pkts bytes target     prot opt in     out     source               destination</span><br><span class="line"></span><br><span class="line">0     0 ACCEPT     all  --  *      *       192.168.4.101        0.0.0.0/0</span><br><span class="line"></span><br><span class="line">0     0 REJECT     all  --  *      *       192.168.4.100        0.0.0.0/0           reject-with icmp-port-unreachable</span><br></pre></td></tr></table></figure>
 <p>对于centos7我们可以通过firewall来设置，想打开的端口， 如何使用firewall防火墙开放端口，在我的<a href="http://www.leijunblog.com/2018/01/06/linux下安装mysql/#more">http://www.leijunblog.com/2018/01/06/linux%E4%B8%8B%E5%AE%89%E8%A3%85mysql/#more</a> 这篇文档末尾有提到。</p>
 <h5 id="然后进行验证"><a href="#然后进行验证" class="headerlink" title="然后进行验证"></a>然后进行验证</h5><p>​    在<strong>A</strong>上面直接访问<strong>C</strong>机器，无法连接</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>curl http://192.168.4.113</span><br><span class="line"></span><br><span class="line">curl: (7) couldn't connect to host</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">curl http://192.168.4.113</span></span><br><span class="line"></span><br><span class="line">curl: (7) couldn't connect to host</span><br></pre></td></tr></table></figure>
 <p>​    在<strong>B</strong>上面直接访问<strong>C</strong>机器，可以正常打开网页服务</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>curl http://192.168.4.113</span><br><span class="line"></span><br><span class="line">&lt;h1&gt;Apache 2 Test Page powered by CentOS&lt;/h1&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">curl http://192.168.4.113</span></span><br><span class="line"></span><br><span class="line">&lt;h1&gt;Apache 2 Test Page powered by CentOS&lt;/h1&gt;</span><br></pre></td></tr></table></figure>
 <hr>
 <h5 id="如果遇到上述情况，-我们就可以使用ssh隧道技术尝试解决"><a href="#如果遇到上述情况，-我们就可以使用ssh隧道技术尝试解决" class="headerlink" title="如果遇到上述情况， 我们就可以使用ssh隧道技术尝试解决"></a>如果遇到上述情况， 我们就可以使用ssh隧道技术尝试解决</h5><div style="color:blue;font-size:16px;font-weight:900;background-color:#999999">方案一    &lt;本地转发&gt;</div>
 
 <p>语法格式：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">-L localport:remotehost:remotehostport sshserver</span><br><span class="line"></span><br><span class="line">-L 本地端口:远程主机地址:远程主机开放端口 中转主机地址</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>选项：</span><br><span class="line"></span><br><span class="line">-f 后台启用</span><br><span class="line"></span><br><span class="line">-N 不打开远程shell，处于等待状态</span><br><span class="line"></span><br><span class="line">-g 表示ssh隧道对应的转发端口将监听在主机的所有IP中，不使用"-g选项"时，转发端口默认只监听在主机的本地回环地址中，"-g"表示开启网关模式，远程端口转发中，无法开启网关功能</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">-L localport:remotehost:remotehostport sshserver</span><br><span class="line"></span><br><span class="line">-L 本地端口:远程主机地址:远程主机开放端口 中转主机地址</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">选项：</span></span><br><span class="line"></span><br><span class="line">-f 后台启用</span><br><span class="line"></span><br><span class="line">-N 不打开远程shell，处于等待状态</span><br><span class="line"></span><br><span class="line">-g 表示ssh隧道对应的转发端口将监听在主机的所有IP中，不使用"-g选项"时，转发端口默认只监听在主机的本地回环地址中，"-g"表示开启网关模式，远程端口转发中，无法开启网关功能</span><br></pre></td></tr></table></figure>
 <ol>
 <li><p>在<strong>A</strong>上面设置本地端口转发</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>ssh -L 1314:192.168.4.113:80 192.168.4.101 -Nf</span><br><span class="line"><span class="meta">#</span>当访问本机的1314的端口时，被加密后转发到192.168.4.101的ssh服务，再解密被转发到192.168.4.113:80</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>ss -nl</span><br><span class="line">LISTEN     0      128          127.0.0.1:1314  *:*</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>在B机器上可以看到连接了                                         </span><br><span class="line"><span class="meta">#</span>ss -nt</span><br><span class="line">ESTAB      0      0       192.168.4.101:22     192.168.4.100:42678</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">ssh -L 1314:192.168.4.113:80 192.168.4.101 -Nf</span></span><br><span class="line"><span class="meta">#</span><span class="bash">当访问本机的1314的端口时，被加密后转发到192.168.4.101的ssh服务，再解密被转发到192.168.4.113:80</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">ss -nl</span></span><br><span class="line">LISTEN     0      128          127.0.0.1:1314  *:*</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">在B机器上可以看到连接了                                         </span></span><br><span class="line"><span class="meta">#</span><span class="bash">ss -nt</span></span><br><span class="line">ESTAB      0      0       192.168.4.101:22     192.168.4.100:42678</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <ol start="2">
 <li><p>在<strong>A</strong>上进行访问网站</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>curl http://127.0.0.1:1314</span><br><span class="line"></span><br><span class="line">&lt;h1&gt;Apache 2 Test Page powered by CentOS&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>成功返回网页内容</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">curl http://127.0.0.1:1314</span></span><br><span class="line"></span><br><span class="line">&lt;h1&gt;Apache 2 Test Page powered by CentOS&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">成功返回网页内容</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <ol start="3">
 <li><p>在<strong>C</strong>机器上面看到的是B的连接</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>ss -nt</span><br><span class="line"></span><br><span class="line">ESTAB 0      1         ::ffff:192.168.4.113:80      192.168.4.101:60500                    </span><br><span class="line"><span class="meta">#</span>在这个场景里，A是ssh客户端，B是ssh服务器端</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">ss -nt</span></span><br><span class="line"></span><br><span class="line">ESTAB 0      1         ::ffff:192.168.4.113:80      192.168.4.101:60500                    </span><br><span class="line"><span class="meta">#</span><span class="bash">在这个场景里，A是ssh客户端，B是ssh服务器端</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <div style="color:blue;font-size:16px;font-weight:900;background-color:#999999">方案二    &lt;远程转发&gt;</div>
 
 <p>语法格式：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">-R sshserverport:remotehost:remotehostport sshserver</span><br><span class="line"></span><br><span class="line">-R 本地端口:远程主机地址:远程主机开放端口 中转主机地址</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>选项：</span><br><span class="line"></span><br><span class="line">-f 后台启用</span><br><span class="line"></span><br><span class="line">-N 不打开远程shell，处于等待状态</span><br><span class="line"></span><br><span class="line">-g 表示ssh隧道对应的转发端口将监听在主机的所有IP中，不使用"-g选项"时，转发端口默认只监听在主机的本地回环地址中，"-g"表示开启网关模式，远程端口转发中，无法开启网关功能</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">-R sshserverport:remotehost:remotehostport sshserver</span><br><span class="line"></span><br><span class="line">-R 本地端口:远程主机地址:远程主机开放端口 中转主机地址</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">选项：</span></span><br><span class="line"></span><br><span class="line">-f 后台启用</span><br><span class="line"></span><br><span class="line">-N 不打开远程shell，处于等待状态</span><br><span class="line"></span><br><span class="line">-g 表示ssh隧道对应的转发端口将监听在主机的所有IP中，不使用"-g选项"时，转发端口默认只监听在主机的本地回环地址中，"-g"表示开启网关模式，远程端口转发中，无法开启网关功能</span><br></pre></td></tr></table></figure>
 <ol>
 <li><p>在<strong>B</strong>上面设置远程端口转发</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>ssl -R 1314:192.168.4.113:80 192.168.4.100 -Nf</span><br><span class="line"><span class="meta">#</span> -R让192.168.4.100侦听1314端口的访问，如有访问，就加密后通过ssh服务转发请求到本机192.168.4.101ssh客户端，再由本机解密后转发到192.168.4.113:80</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>在A上面能看到B访问A的22端口</span><br><span class="line"><span class="meta">#</span>ss -nt</span><br><span class="line"></span><br><span class="line">ESTAB      0      0       192.168.4.100:22       192.168.4.101:45830</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">ssl -R 1314:192.168.4.113:80 192.168.4.100 -Nf</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -R让192.168.4.100侦听1314端口的访问，如有访问，就加密后通过ssh服务转发请求到本机192.168.4.101ssh客户端，再由本机解密后转发到192.168.4.113:80</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">在A上面能看到B访问A的22端口</span></span><br><span class="line"><span class="meta">#</span><span class="bash">ss -nt</span></span><br><span class="line"></span><br><span class="line">ESTAB      0      0       192.168.4.100:22       192.168.4.101:45830</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <ol start="2">
 <li><p>在<strong>A</strong>上进行访问网站</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>curl http://127.0.0.1:1314</span><br><span class="line"></span><br><span class="line">&lt;h1&gt;Apache 2 Test Page powered by CentOS&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>成功返回网页内容</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">curl http://127.0.0.1:1314</span></span><br><span class="line"></span><br><span class="line">&lt;h1&gt;Apache 2 Test Page powered by CentOS&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">成功返回网页内容</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <ol start="3">
 <li><p>在<strong>C</strong>机器上面看到的是B的连接</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>ss -nt</span><br><span class="line"></span><br><span class="line">FIN-WAIT-1 0      1     ::ffff:192.168.4.113:80   ::ffff:192.168.4.101:50934                  </span><br><span class="line"><span class="meta">#</span> 在这个场景里，B是ssh客户端，A是ssh服务器端</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">ss -nt</span></span><br><span class="line"></span><br><span class="line">FIN-WAIT-1 0      1     ::ffff:192.168.4.113:80   ::ffff:192.168.4.101:50934                  </span><br><span class="line"><span class="meta">#</span><span class="bash"> 在这个场景里，B是ssh客户端，A是ssh服务器端</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <div style="color:blue;font-size:16px;font-weight:900;background-color:#999999">方案三    &lt;动态端口转发&gt;</div>
@@ -557,15 +557,15 @@
 <p>同时可实现 window 浏览器 通过跳转服务器 访问外网：</p>
 <p><img src="/2018/02/06/SSH隧道tunneling端口转发/02.png" alt=""></p>
 <p>语法：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>ssh -D 1080 远程主机地址</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>当用浏览器访问internet时，本机的XXX端口做为代理服务器，firefox的访问请求被转发到sshserver上，由sshserver替之访问internet</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">ssh -D 1080 远程主机地址</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">当用浏览器访问internet时，本机的XXX端口做为代理服务器，firefox的访问请求被转发到sshserver上，由sshserver替之访问internet</span></span><br></pre></td></tr></table></figure>
 <ol>
 <li><p>在A上面启用动态端口转发至B机器上</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>ssh -D 1888 192.168.4.101 -Nf</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">ssh -D 1888 192.168.4.101 -Nf</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <ol start="2">
 <li><p>在A机器上面指定使用socks5 访问</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>curl --socks5 127.0.0.1:1888 http://192.168.4.113</span><br><span class="line"></span><br><span class="line">&lt;img src="./google.png"&gt;&lt;/img&gt; #成功返回</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">curl --socks5 127.0.0.1:1888 http://192.168.4.113</span></span><br><span class="line"></span><br><span class="line">&lt;img src="./google.png"&gt;&lt;/img&gt; #成功返回</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>如果在windows 下设置：</p>
@@ -574,7 +574,7 @@
 </ol>
 <ol start="2">
 <li><p>打开本地git-bash</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>ssh -D 1888 root@192.168.4.101 -Nf</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 这里root 是跳转机用户名， 回车，根据提示输入密码， 回车</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">ssh -D 1888 root@192.168.4.101 -Nf</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 这里root 是跳转机用户名， 回车，根据提示输入密码， 回车</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <ol start="3">
@@ -672,10 +672,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -700,7 +700,7 @@
                   <a href="/archives/">
                 
                     <span class="site-state-item-count">13</span>
-                    <span class="site-state-item-name">Artikel</span>
+                    <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
               
@@ -725,7 +725,7 @@
                       
                     
                     <span class="site-state-item-count">6</span>
-                    <span class="site-state-item-name">Kategorien</span>
+                    <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
               
@@ -760,7 +760,7 @@
                       
                     
                     <span class="site-state-item-count">11</span>
-                    <span class="site-state-item-name">Tags</span>
+                    <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
               
@@ -844,7 +844,7 @@
 
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
 
 
 
