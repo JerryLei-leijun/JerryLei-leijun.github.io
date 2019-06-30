@@ -118,7 +118,7 @@
 <meta property="og:description" content="docker简介上手(2)Docker安装Nginxdocker搭建HTTP服务器Nginx环境  12&amp;gt; docker pull nginx&amp;gt;   12&amp;gt;  docker container run -d -p 80:80 --rm --name mynginx nginx&amp;gt;    参数说明:  12345&amp;gt; &amp;gt;-d 容器后台运行&amp;gt; &amp;gt;-p 映射容">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.leijunblog.com/2017/08/03/docker简易上手(2)%20/docker简易上手(2">
-<meta property="og:updated_time" content="2019-06-30T16:40:20.983Z">
+<meta property="og:updated_time" content="2019-06-30T16:45:43.264Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="docker简易上手(2)">
 <meta name="twitter:description" content="docker简介上手(2)Docker安装Nginxdocker搭建HTTP服务器Nginx环境  12&amp;gt; docker pull nginx&amp;gt;   12&amp;gt;  docker container run -d -p 80:80 --rm --name mynginx nginx&amp;gt;    参数说明:  12345&amp;gt; &amp;gt;-d 容器后台运行&amp;gt; &amp;gt;-p 映射容">
@@ -427,7 +427,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2019-07-01 00:40:20" itemprop="dateModified" datetime="2019-07-01T00:40:20+08:00">2019-07-01</time>
+                <time title="Updated at: 2019-07-01 00:45:43" itemprop="dateModified" datetime="2019-07-01T00:45:43+08:00">2019-07-01</time>
               
             
           </span>
@@ -509,7 +509,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; &gt;-d 容器后台运行</span><br><span class="line">&gt; &gt;-p 映射容器端口到宿主机端口</span><br><span class="line">&gt; &gt;--rm 停止容器后自动删除容器</span><br><span class="line">&gt; &gt;--name 自定义容器名字</span><br><span class="line">&gt; &gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
 </blockquote>
-<p>部署自己的页面到nginx, 使用拷贝命令将当前文件下所有的文件和文件夹拷贝到容器指定目录中(此命令也可将容器中文件拷到本地)。</p>
+<p>部署自己的页面到nginx, 使用拷贝命令将当前文件下所有的文件和文件夹拷贝到容器指定目录中(此命令也可将容器中文件拷到本地)。<a id="more"></a></p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;docker container cp ./index.html mynginx:/usr/<span class="built_in">local</span>/nginx/index.html</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
@@ -542,7 +542,7 @@
 <ol>
 <li>项目结构</li>
 </ol>
-<p><img src="/2017/08/03/docker简易上手(2) /./docker简易上手(2" alt="">/docker01.PNG)</p>
+<p><img src="/2017/08/03/docker简易上手(2) /docker简易上手(2" alt="">/docker01.PNG)</p>
 <ol start="2">
 <li><p>将项目所需安装包定向到requirements.txt</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip freeze &gt; requirements.txt</span><br></pre></td></tr></table></figure>
@@ -708,7 +708,7 @@
                 
                 
                 <div class="site-state-item site-state-categories">
-                  <a href="/folder/index.html">
+                  <a href="/categories/index.html">
                     
                     
                       

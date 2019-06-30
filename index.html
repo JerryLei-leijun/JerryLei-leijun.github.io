@@ -800,7 +800,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2019-07-01 00:40:20" itemprop="dateModified" datetime="2019-07-01T00:40:20+08:00">2019-07-01</time>
+                <time title="Updated at: 2019-07-01 00:45:43" itemprop="dateModified" datetime="2019-07-01T00:45:43+08:00">2019-07-01</time>
               
             
           </span>
@@ -862,14 +862,20 @@
 
       
         
-          
-          docker简介上手(2)Docker安装Nginxdocker搭建HTTP服务器Nginx环境
-
-12&gt; docker pull nginx&gt;
-
-
-12&gt;  docker container run -d -p 80:80 --rm --name mynginx nginx&gt
-          ...
+          <h2 id="docker简介上手-2"><a href="#docker简介上手-2" class="headerlink" title="docker简介上手(2)"></a>docker简介上手(2)</h2><h4 id="Docker安装Nginx"><a href="#Docker安装Nginx" class="headerlink" title="Docker安装Nginx"></a>Docker安装Nginx</h4><p>docker搭建HTTP服务器Nginx环境</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; docker pull nginx</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;  docker container run -d -p 80:80 --rm --name mynginx nginx</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>参数说明: </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; &gt;-d 容器后台运行</span><br><span class="line">&gt; &gt;-p 映射容器端口到宿主机端口</span><br><span class="line">&gt; &gt;--rm 停止容器后自动删除容器</span><br><span class="line">&gt; &gt;--name 自定义容器名字</span><br><span class="line">&gt; &gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</blockquote>
+<p>部署自己的页面到nginx, 使用拷贝命令将当前文件下所有的文件和文件夹拷贝到容器指定目录中(此命令也可将容器中文件拷到本地)。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/08/03/docker简易上手(2) /#more" rel="contents">
@@ -991,7 +997,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2019-06-30 23:12:20" itemprop="dateModified" datetime="2019-06-30T23:12:20+08:00">2019-06-30</time>
+                <time title="Updated at: 2019-07-01 00:45:06" itemprop="dateModified" datetime="2019-07-01T00:45:06+08:00">2019-07-01</time>
               
             
           </span>
@@ -1053,12 +1059,11 @@
 
       
         
-          
-          docker简介上手(1)2013年发布至今， Docker 一直广受瞩目，被认为可能会改变软件行业。
-/docker01.PNG)
-那么, docker究竟是个什么神奇的东西, 他又将给将会给软件行业带来哪些好处, 解决哪些问题呢?不如随我一同了解一下!
-回顾软件发展遇到的问题一、诱因大家都知道软
-          ...
+          <h2 id="docker简介上手-1"><a href="#docker简介上手-1" class="headerlink" title="docker简介上手(1)"></a>docker简介上手(1)</h2><p>2013年发布至今， Docker 一直广受瞩目，被认为可能会改变软件行业。</p>
+<p><img src="/2017/06/06/docker简易上手(1)/docker简易上手(1" alt="">/docker01.PNG)</p>
+<p>那么, docker究竟是个什么神奇的东西, 他又将给将会给软件行业带来哪些好处, 解决哪些问题呢?不如随我一同了解一下!</p>
+<h3 id="回顾软件发展遇到的问题"><a href="#回顾软件发展遇到的问题" class="headerlink" title="回顾软件发展遇到的问题"></a>回顾软件发展遇到的问题</h3><h4 id="一、诱因"><a href="#一、诱因" class="headerlink" title="一、诱因"></a>一、诱因</h4><p>大家都知道软件开发一个很麻烦的东西就是环境配置, 要想程序跑起来, 就必须满足程序运行所具备的一切条件, 比如, 你的机器上要跑一个python程序,就必须安装python的引擎, 和程序引用的所有依赖包和框架, 以及配置环境变量等! </p>
+<p>配置环境, 会由于系统的不同,安装方法也不一样,比如windows ,mac,linux(centos与ubuntu也不完全相同)等, 甚是麻烦, 如果遇到无网环境还得源码离线编译安装, 可谓是折腾死人!</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/06/06/docker简易上手(1)/#more" rel="contents">
@@ -1430,6 +1435,190 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/06/13/Celery的简单安装与应用/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.leijunblog.com/2016/01/06/SQL注入攻击/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jerry Lei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/leijun.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LeiJun's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/01/06/SQL注入攻击/" itemprop="url">
+                  SQL注入攻击
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2016-01-06 00:00:00" itemprop="dateCreated datePublished" datetime="2016-01-06T00:00:00+08:00">2016-01-06</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-09-08 12:12:52" itemprop="dateModified" datetime="2018-09-08T12:12:52+08:00">2018-09-08</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/network-security/" itemprop="url" rel="index"><span itemprop="name">network security</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/01/06/SQL注入攻击/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count fb-comments-count" data-href="http://www.leijunblog.com/2016/01/06/SQL注入攻击/" itemprop="commentCount">0</span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h4 id="什么是SQL注入"><a href="#什么是SQL注入" class="headerlink" title="什么是SQL注入?"></a>什么是SQL注入?</h4><p>所谓SQL注入，就是通过把SQL命令插入到Web表单提交或输入域名或页面请求的查询字符串，最终达到欺骗服务器执行恶意的SQL命令。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/01/06/SQL注入攻击/#more" rel="contents">
               Weiterlesen &raquo;
             </a>
           </div>
@@ -1857,190 +2046,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.leijunblog.com/2016/01/06/SQL注入攻击/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jerry Lei">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/leijun.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LeiJun's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/01/06/SQL注入攻击/" itemprop="url">
-                  SQL注入攻击
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2016-01-06 00:00:00" itemprop="dateCreated datePublished" datetime="2016-01-06T00:00:00+08:00">2016-01-06</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-09-08 12:12:52" itemprop="dateModified" datetime="2018-09-08T12:12:52+08:00">2018-09-08</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/network-security/" itemprop="url" rel="index"><span itemprop="name">network security</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/01/06/SQL注入攻击/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count fb-comments-count" data-href="http://www.leijunblog.com/2016/01/06/SQL注入攻击/" itemprop="commentCount">0</span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="什么是SQL注入"><a href="#什么是SQL注入" class="headerlink" title="什么是SQL注入?"></a>什么是SQL注入?</h4><p>所谓SQL注入，就是通过把SQL命令插入到Web表单提交或输入域名或页面请求的查询字符串，最终达到欺骗服务器执行恶意的SQL命令。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/01/06/SQL注入攻击/#more" rel="contents">
-              Weiterlesen &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.leijunblog.com/2015/10/06/python内存管理机制/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2275,7 +2280,7 @@
                 
                 
                 <div class="site-state-item site-state-categories">
-                  <a href="/folder/index.html">
+                  <a href="/categories/index.html">
                     
                     
                       
